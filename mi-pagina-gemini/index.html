@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquimista - El Equilibrio es una Continua Transformación</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="overflow-x-hidden">
+
+    <header id="main-header" class="fixed top-0 right-0 p-4 z-50">
+        <button id="menu-btn" class="w-10 h-10 p-2">
+            <svg class="w-full h-full text-oro-viejo" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+    <div id="menu-overlay" class="fixed inset-0 z-40 flex-col items-center justify-center hidden opacity-0 invisible">
+        <h2 class="text-3xl text-luz-de-vela font-cinzel tracking-widest mb-12">ALQUIMISTA</h2>
+        <nav class="flex flex-col text-center text-2xl font-cinzel">
+            <a href="#codice" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">El Códice</a>
+            <a href="#formulaciones" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">Formulaciones</a>
+            <a href="#manifiesto" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">Manifiesto</a>
+        </nav>
+    </div>
+
+    <main>
+        <section id="velo" class="h-screen w-screen flex flex-col justify-between items-center p-8 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black z-0">
+                <div class="w-full h-full object-cover opacity-30 bg-noche-alquimista"></div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(26,26,29,1)] via-[rgba(26,26,29,0.7)] to-transparent z-10"></div>
+            <div class="relative z-20 flex flex-col items-center justify-center h-full text-center">
+                <div class="w-24 h-24 mb-4 fade-in fade-in-delay-0">
+                    <svg class="w-full h-full text-oro-viejo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 50C50 50 50 75 75 75C100 75 100 50 100 50C100 25 75 25 75 50C75 75 50 75 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 50 25 25 25C0 25 0 50 0 50C0 75 25 75 25 50C25 25 50 25 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 25 50 25 25C25 0 50 0 50 0C75 0 75 25 50 25C25 25 25 50 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 75 50 75 75C75 100 50 100 50 100C25 100 25 75 50 75C75 75 75 50 50 50Z" stroke="currentColor" stroke-width="2" /></svg>
+                </div>
+                <h1 class="text-4xl md:text-5xl text-luz-de-vela font-cinzel tracking-widest fade-in fade-in-delay-1">ALQUIMISTA</h1>
+                <p class="text-lg md:text-xl text-luz-de-vela mt-4 fade-in fade-in-delay-2 font-normal tracking-normal">Donde la sabiduria se vuelve equilibrio.</p>
+            </div>
+            <div class="relative z-20 w-full flex justify-center pb-8 fade-in fade-in-delay-3">
+                <a href="#codice" class="btn">[ Entrar al Santuario ]</a>
+            </div>
+        </section>
+
+        <section id="codice" class="py-16 px-4 md:px-8">
+            <header class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl">El Códice</h2>
+                <p class="subtitle text-lg text-oro-viejo mt-2">Píldoras de Sabiduría</p>
+            </header>
+
+            <div class="max-w-xl mx-auto flex flex-col gap-8">
+                <div class="bg-pizarra-suave border border-purpura-alquimista rounded-lg p-6 shadow-lg" data-aos="fade-up">
+                    <h3 class="text-2xl text-center text-oro-viejo mb-2">Caldero de Sabiduría</h3>
+                    <p class="text-center mb-4">Susurra tu sentir al caldero, y el oráculo te revelará la infusión que tu espíritu necesita.</p>
+                    <input type="text" id="codice-topic-input" class="input-alquimista text-center mb-4" placeholder="Ej: mente cansada, espíritu inquieto...">
+                    <div class="text-center">
+                        <button id="generate-codice-btn" class="btn">[ ✨ Preparar Mi Infusión ]</button>
+                    </div>
+                    <div id="codice-result-container" class="mt-4 p-4 rounded-lg flex items-center justify-center text-center italic text-luz-de-vela/80">
+                        El caldero aguarda tu intención.
+                    </div>
+                </div>
+                <article class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-cinzel text-2xl text-luz-de-vela mb-2">Cannabis Sativa</h3>
+                    <p class="subtitle text-oro-viejo mb-4">La Hierba que Calma el Viento Interno</p>
+                    <img src="https://placehold.co/600x400/2c2c31/f4f1ea?text=Cannabis" alt="[Imagen de Cannabis Sativa]" class="rounded-md mb-4 w-full h-auto" loading="lazy">
+                    <ul class="list-disc list-inside space-y-3 text-luz-de-vela">
+                        <li>Desbloquea el estancamiento de Qi y Sangre, siendo un aliado ancestral para aliviar el dolor crónico y agudo.</li>
+                        <li>Calma el "Viento del Hígado", un patrón que en la MTC se asocia con espasmos, temblores y la agitación del espíritu (Shen).</li>
+                        <li>Sus semillas (Huo Ma Ren 火麻仁) son un tesoro que nutre el Yin y los fluidos, combatiendo la sequedad desde el interior.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen">
+            <header class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl">Formulaciones</h2>
+                <p class="subtitle text-lg text-oro-viejo mt-2">Maestría Artesanal</p>
+            </header>
+            <div id="formulaciones-gallery" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up"></div>
+            <div id="formulaciones-detail" class="hidden max-w-xl mx-auto">
+                <button id="back-to-gallery" class="btn btn-outline mb-8 text-sm !py-2 !px-4">
+                    &larr; Volver a la Galería
+                </button>
+                <div class="swiper-container mb-8 rounded-lg border border-purpura-alquimista">
+                    <div id="product-swiper-wrapper" class="swiper-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="text-center">
+                    <h3 id="product-name" class="text-3xl"></h3>
+                    <p id="product-subtitle" class="subtitle text-lg text-oro-viejo"></p>
+                    <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
+                </div>
+                <div id="product-accordion" class="my-8 space-y-2"></div>
+                <div class="text-center my-8">
+                    <a id="whatsapp-cta" href="#" class="btn">[ Pedir o Consultar por WhatsApp ]</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="manifiesto" class="py-16 px-4 md:px-8">
+            <div class="w-full" data-aos="fade-in" data-aos-duration="1000">
+                <img src="https://placehold.co/800x1000/2c2c31/f4f1ea?text=Rostro+del+Alquimista" alt="[Imagen del Rostro del Alquimista]" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+
+            <div class="max-w-xl mx-auto text-center py-16 px-6" data-aos="fade-up">
+                <div class="text-luz-de-vela text-xl md:text-2xl" style="font-family: 'EB Garamond', serif;">
+                    <p class="mb-6">Hubo un tiempo en que la ciencia de los hombres le falló a quienes más amaba.</p>
+                    <p class="mb-6">En esa oscuridad, en lugar de buscar respuestas nuevas, decidí recordar las antiguas.</p>
+                    <p>Alquimista es el resultado de esa búsqueda. Es un regreso a la fuente.</p>
+                </div>
+                <div class="text-oro-viejo text-2xl tracking-widest my-12">. . .</div>
+            </div>
+
+            <div class="max-w-xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl text-center mb-12 font-cinzel-decorative" data-aos="fade-up">NUESTRA FILOSOFÍA</h2>
+                <div class="space-y-12">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl text-oro-viejo mb-4">🌱</div>
+                        <h4 class="text-xl text-oro-viejo font-semibold" style="font-family: 'EB Garamond', serif;">La Raíz sobre la Molécula.</h4>
+                        <p class="text-luz-de-vela mt-2">Creemos que la inteligencia de una planta entera, perfeccionada por milenios, es superior a la de un componente aislado. Honramos la complejidad sagrada de la naturaleza.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl text-oro-viejo mb-4">💧</div>
+                        <h4 class="text-xl text-oro-viejo font-semibold" style="font-family: 'EB Garamond', serif;">El Alivio como Acto Sagrado.</h4>
+                        <p class="text-luz-de-vela mt-2">Nuestra primera fórmula, Panacea Summus, nació de una necesidad personal y urgente de encontrar el alivio que la ciencia convencional no podía ofrecer. Cada producto desde entonces lleva esa misma intención: no solo tratar, sino cuidar y restaurar.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl text-oro-viejo mb-4">👁️</div>
+                        <h4 class="text-xl text-oro-viejo font-semibold" style="font-family: 'EB Garamond', serif;">La Piel como Reflejo del Alma.</h4>
+                        <p class="text-luz-de-vela mt-2">Empezamos este viaje para sanar el cuerpo, y descubrimos en la cosmética un camino para tocar el espíritu. Lo que aplicas en tu piel es un mensaje que le envías a tu interior. Nuestros productos son ese mensaje de equilibrio y bienestar.</p>
+                    </div>
+                </div>
+                <div class="text-oro-viejo text-2xl tracking-widest my-12 text-center" data-aos="fade-up">. . .</div>
+            </div>
+
+            <div class="max-w-xl mx-auto text-center px-6 pb-16" data-aos="fade-up">
+                <p class="text-luz-de-vela text-lg mb-8">Alquimista es una conversación. Si tienes una pregunta sobre tu ritual, una duda sobre qué formulación resuena más contigo, o simplemente quieres compartir tu viaje, este es el espacio para hacerlo.</p>
+                <a id="whatsapp-manifiesto-cta" href="#" class="btn w-full max-w-sm mx-auto mb-8">[ Pedir o Consultar por WhatsApp ]</a>
+                <div class="mt-8">
+                    <p class="subtitle text-luz-de-vela mb-2">Síguenos en el viaje:</p>
+                    <a href="#" class="inline-block text-oro-viejo hover:text-luz-de-vela transition-colors text-center">
+                        <svg class="w-10 h-10 mx-auto" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+                        <p class="font-sans text-lg mt-2 tracking-wide">@alquimistashop</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-12 px-4 border-t border-t-pizarra-suave bg-black bg-opacity-20">
+        <div class="max-w-xl mx-auto flex flex-col items-center">
+            <div class="flex justify-center items-center gap-4 mb-4">
+                <div class="w-10 h-10">
+                    <svg class="w-full h-full text-oro-viejo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 50C50 50 50 75 75 75C100 75 100 50 100 50C100 25 75 25 75 50C75 75 50 75 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 50 25 25 25C0 25 0 50 0 50C0 75 25 75 25 50C25 25 50 25 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 25 50 25 25C25 0 50 0 50 0C75 0 75 25 50 25C25 25 25 50 50 50Z" stroke="currentColor" stroke-width="2" /><path d="M50 50C50 50 75 50 75 75C75 100 50 100 50 100C25 100 25 75 50 75C75 75 75 50 50 50Z" stroke="currentColor" stroke-width="2" /></svg>
+                </div>
+                <h2 class="text-3xl text-luz-de-vela font-cinzel tracking-widest">ALQUIMISTA</h2>
+            </div>
+            <p class="text-sm text-gray-400 mt-4">&copy; 2025 Alquimista. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
