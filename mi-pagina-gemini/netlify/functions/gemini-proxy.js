@@ -29,7 +29,8 @@ exports.handler = async function (event, context) {
         console.log("Clave de API encontrada. (Mostrando solo los últimos 4 caracteres): ..." + API_KEY.slice(-4));
 
         // LA LÍNEA FINAL Y CORRECTA CON EL NOMBRE DE TU MODELO
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
+        // La línea final, correcta y compatible
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
         const payload = {
             contents: [{ role: "user", parts: [{ text: prompt }] }],
