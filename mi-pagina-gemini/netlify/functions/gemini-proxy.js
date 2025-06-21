@@ -1,38 +1,56 @@
-﻿// CÓDIGO TEMPORAL para descubrir los modelos disponibles
-// Pega esto en netlify/functions/gemini-proxy.js
+﻿/// CÓDIGO FINAL Y CORRECTO para: netlify/functions/gemini-proxy.js
 exports.handler = async function (event, context) {
-    console.log("Iniciando función para listar modelos...");
-
-    const API_KEY = process.env.GEMINI_API_KEY;
-
-    if (!API_KEY) {
-        return { statusCode: 500, body: JSON.stringify({ error: 'API key no configurada.' }) };
+    if (event.httpMethod !== 'POST') {
+        return { statusCode: 405, body: 'Method Not Allowed' };
     }
 
-    // Esta es la URL especial para listar los modelos disponibles
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`;
-
     try {
-        console.log("Consultando la lista de modelos a Google...");
-        const response = await fetch(API_URL);
-        const data = await response.json();
+        const { prompt, schema } = JSON.parse(event.body);
 
-        if (!response.ok) {
-            console.error("Error recibido de Google al listar modelos:", data);
-            return { statusCode: response.status, body: JSON.stringify(data) };
+        if (!prompt || !schema) {
+            return { statusCode: 400, body: JSON.stringify({ error: 'Falta el prompt o el schema en la petición.' }) };
         }
 
-        console.log("¡Lista de modelos obtenida con éxito!");
+        const API_KEY = process.env.GEMINI_API_KEY;
 
-        // Devolvemos la lista completa para poder verla en el navegador
+        if (!API_KEY) {
+            return { statusCode: 500, body: JSON.stringify({ error: 'La clave de API no está configurada en el servidor.' }) };
+        }
+
+        // LA LÍNEA CORREGIDA CON EL NOMBRE EXACTO DEL MODELO
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
+
+        const payload = {
+            contents: [{ role: "user", parts: [{ text: prompt }] }],
+            generationConfig: {
+                responseMimeType: "application/json",
+                responseSchema: schema
+            }
+        };
+
+        const geminiResponse = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (!geminiResponse.ok) {
+            const errorData = await geminiResponse.json();
+            return {
+                statusCode: geminiResponse.status,
+                body: JSON.stringify({ error: `Error desde la API de Gemini: ${errorData.error.message}` }),
+            };
+        }
+
+        const result = await geminiResponse.json();
+        const generatedText = result.candidates[0].content.parts[0].text;
+
         return {
             statusCode: 200,
-            headers: { "Content-Type": "application/json; charset=utf-8" },
-            body: JSON.stringify(data.models, null, 2), // Formateado para ser fácil de leer
+            body: JSON.stringify({ response: generatedText }),
         };
 
     } catch (error) {
-        console.error("Error catastrófico:", error);
         return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
     }
 };
