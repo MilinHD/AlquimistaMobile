@@ -28,7 +28,7 @@ exports.handler = async function (event, context) {
         }
         console.log("Clave de API encontrada. (Mostrando solo los últimos 4 caracteres): ..." + API_KEY.slice(-4));
 
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=${API_KEY}`;
         const payload = { /* ... payload ... */ }; // El payload es el mismo de antes
 
         console.log("Enviando petición a la API de Gemini...");
