@@ -172,25 +172,26 @@ window.onload = function () {
         codiceGenerateBtn.disabled = true;
         codiceTopicInput.disabled = true;
 
-        // El prompt que enviaremos a nuestra función segura.
-        const prompt = `Eres un sabio alquimista y herbolario, con un tono poético y místico. Un usuario describe su malestar como: '${topic}'. Basado en esto, recomienda una infusión simple con 2-3 ingredientes comunes. Responde en el formato JSON solicitado.`;
+        // PASO 1: HEMOS MODIFICADO EL PROMPT PARA PEDIR EL MODO DE USO
+        const prompt = `Eres un sabio alquimista y herbolario, con un tono poético y místico. Un usuario describe su malestar como: '${topic}'. Basado en esto, recomienda una infusión simple con 2-3 ingredientes comunes. Incluye un breve 'modo de uso' (ej. 'Beber una taza tibia 30 minutos antes de dormir'). Proporciona toda la información en formato JSON.`;
+
+        // PASO 2: HEMOS AÑADIDO 'modo_de_uso' AL ESQUEMA
         const schema = {
             type: "OBJECT",
             properties: {
                 nombreInfusion: { type: "STRING", description: "Un nombre poético y místico para la infusión (ej. 'Aliento de Montaña Serena')" },
                 ingredientes: { type: "ARRAY", items: { "type": "STRING" }, description: "Una lista de 2 a 3 ingredientes simples y comunes." },
                 preparacion: { type: "STRING", description: "Instrucciones de preparación muy sencillas y breves." },
-                sabiduria: { type: "STRING", description: "Una explicación corta (máx 60 palabras), poética y mística de sus beneficios y lo que representa." }
+                modo_de_uso: { type: "STRING", description: "Instrucciones breves sobre cuándo o cómo tomar la infusión." }, // <-- NUEVA PROPIEDAD
+                sabiduria: { type: "STRING", description: "Una explicación corta (máx 60 palabras), poética y mística de sus beneficios. Invita a contactar al alquimista en caso de dudas" }
             },
-            required: ["nombreInfusion", "ingredientes", "preparacion", "sabiduria"]
+            required: ["nombreInfusion", "ingredientes", "preparacion", "modo_de_uso", "sabiduria"] // <-- AÑADIDO A LA LISTA
         };
 
         try {
-            // ¡AQUÍ ESTÁ LA MAGIA! Llamamos a nuestra función de Netlify, no a Gemini directamente.
             const response = await fetch('/.netlify/functions/gemini-proxy', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                // Enviamos el prompt y el esquema en el cuerpo de la petición.
                 body: JSON.stringify({ prompt, schema })
             });
 
@@ -199,21 +200,21 @@ window.onload = function () {
                 throw new Error(errorData.error || `API Error: ${response.statusText}`);
             }
 
-            // La respuesta de nuestra función ya viene procesada.
             const data = await response.json();
             const infusionData = JSON.parse(data.response);
 
+            // PASO 3: HEMOS AÑADIDO LA LÍNEA PARA MOSTRAR EL MODO DE USO
             codiceResultContainer.innerHTML = `
-                <div class="text-left w-full">
-                    <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
-                    <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
-                    <ul class="list-disc list-inside mb-4 ml-4">
-                        ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
-                    </ul>
-                    <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
-                    <p class="italic mt-4">“${infusionData.sabiduria}”</p>
-                </div>
-            `;
+            <div class="text-left w-full">
+                <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
+                <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
+                <ul class="list-disc list-inside mb-4 ml-4">
+                    ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
+                </ul>
+                <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
+                <p class="mb-2"><strong class="text-purpura-alquimista">Modo de Uso:</strong> <span class="math-inline">\{infusionData\.modo\_de\_uso\}</p\> <p class\="italic mt\-4"\>“</span>{infusionData.sabiduria}”</p>
+            </div>
+        `;
 
         } catch (error) {
             console.error("Error generating Infusion:", error);
