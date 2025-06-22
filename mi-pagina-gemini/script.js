@@ -162,6 +162,7 @@ window.onload = function () {
     const codiceTopicInput = document.getElementById('codice-topic-input');
 
     // Reemplaza la función existente con esta versión completa y corregida
+    // VERSIÓN FINAL Y DEFINITIVA
     codiceGenerateBtn.addEventListener('click', async () => {
         const topic = codiceTopicInput.value.trim();
         if (!topic) {
@@ -202,26 +203,27 @@ window.onload = function () {
             const data = await response.json();
             const infusionData = JSON.parse(data.response);
 
+            // El contenedor del resultado ahora tiene un `div` que envuelve todo
             codiceResultContainer.innerHTML = `
-            <div class="text-left w-full">
-                <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
-                <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
-                <ul class="list-disc list-inside mb-4 ml-4">
-                    ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
-                </ul>
-                <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
-                <p class="mb-2"><strong class="text-purpura-alquimista">Modo de Uso:</strong> ${infusionData.modo_de_uso}</p>
-                <p class="italic mt-4">“${infusionData.sabiduria}”</p>
-            </div>
+            <div> <div class="text-left w-full">
+                    <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
+                    <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
+                    <ul class="list-disc list-inside mb-4 ml-4">
+                        ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                    <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
+                    <p class="mb-2"><strong class="text-purpura-alquimista">Modo de Uso:</strong> ${infusionData.modo_de_uso}</p>
+                    <p class="italic mt-4">“${infusionData.sabiduria}”</p>
+                </div>
 
-            <div class="text-oro-viejo text-2xl tracking-widest my-6 text-center">. . .</div>
-            <p class="subtitle text-center text-luz-de-vela/80 text-sm">
-                Si esta sabiduría resuena contigo y buscas una guía más profunda, 
-                <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Alquimista, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
-                    el Alquimista te escucha.
-                </a>
-            </p>
-        `;
+                <div class="text-oro-viejo text-2xl tracking-widest my-6 text-center">. . .</div>
+                <p class="subtitle text-center text-luz-de-vela/80 text-sm">
+                    Si esta sabiduría resuena contigo y buscas una guía más profunda, 
+                    <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Alquimista, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
+                        el Alquimista te escucha.
+                    </a>
+                </p>
+            </div> `;
 
         } catch (error) {
             console.error("Error generating Infusion:", error);
