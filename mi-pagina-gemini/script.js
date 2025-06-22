@@ -9,7 +9,7 @@ window.onload = function () {
     const products = [
         {
             id: 'panacea-summus', name: 'Panacea Summus', subtitle: 'Ungüento de Alivio Profundo', price: 38000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Panacea'],
+            images: ['images/Panacea-Summus.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Manzanilla:</strong> Un dúo potente que calma la inflamación y apacigua la respuesta del cuerpo al dolor profundo.</li><li><strong>Alcanfor y Mentol:</strong> El aliento de la montaña. Generan una dualidad de frío y calor que confunde al dolor y relaja la tensión.</li><li><strong>Caléndula y Romero:</strong> Repara la piel estresada, mientras el espíritu del romero estimula la circulación de la energía (Qi).</li><li><strong>Ylang Ylang:</strong> Una nota floral exótica que ayuda a calmar el espíritu (Shen) asociado a la molestia física.</li><li><strong>Base de Cera de Abejas y Karité:</strong> Un vehículo rico que sella los activos en la piel para una liberación lenta y sostenida.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>Este no es un simple ungüento, es un ritual de liberación. Formulado para penetrar en el tejido y disolver los nudos de tensión. Es el aliado para el dolor muscular, la rigidez articular, o cuando el cuerpo simplemente pide restauración.</p>' },
@@ -19,7 +19,7 @@ window.onload = function () {
         // ... Pega aquí el resto de tus productos de la misma forma ...
         {
             id: 'petra-lorien', name: 'Petra Lorien', subtitle: 'Shampoo Sólido Purificante y Fortalecedor', price: 38000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Petra+Lorien'],
+            images: ['images/Petra-Lorien.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Bentonita:</strong> El corazón de arcilla de la tierra, un imán natural para las impurezas y el exceso de grasa.</li><li><strong>Árbol de Té y Menta:</strong> El aliento antiséptico del bosque, que purifica profundamente el cuero cabelludo.</li><li><strong>Cannabis y Romero:</strong> Un dúo que fortalece el folículo y estimula la circulación para un crecimiento sano.</li><li><strong>Miel (Fēng Mì):</strong> Aporta hidratación y brillo, asegurando que la limpieza profunda nunca sea agresiva.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>Libera tu cabello de lo innecesario. Petra Lorien genera una espuma rica y purificante, limpiando desde la raíz sin despojar al cabello de su esencia. Fortalece, equilibra y deja una sensación de ligereza incomparable.</p>' },
@@ -28,7 +28,7 @@ window.onload = function () {
         },
         {
             id: 'nox-lucens', name: 'Nox Lucens', subtitle: 'Acondicionador Sólido Nutritivo y Reparador', price: 28000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Nox+Lucens'],
+            images: ['images/Nox-Lucens.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Manteca de Cacao:</strong> El oro graso de la selva, un emoliente que devuelve la flexibilidad y la suavidad.</li><li><strong>Miel (Fēng Mì) y Cera de Abejas:</strong> Un dúo que sella la cutícula, atrapando la hidratación y reduciendo el frizz.</li><li><strong>Vitamina E:</strong> Un antioxidante esencial que protege al cabello del estrés ambiental.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>La noche que ilumina. Nox Lucens se derrite en una crema sedosa para recubrir y reparar tu cabello. Desenreda, nutre y protege, dejando el cabello increíblemente suave, manejable y con un brillo nocturno.</p>' },
@@ -37,7 +37,7 @@ window.onload = function () {
         },
         {
             id: 'aura-mielitae', name: 'Aura Mielitae', subtitle: 'Bálsamo Labial Protector y Reparador', price: 26000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Aura+Mielitae'],
+            images: ['images/Aura-Mielitae.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cera de Abejas y Manteca de Karité:</strong> Crean un velo protector que defiende la delicada piel de los labios.</li><li><strong>Caléndula:</strong> La flor sanadora que repara las fisuras y calma la irritación.</li><li><strong>Sándalo:</strong> Un ancla meditativa, cuya esencia calma la mente y el espíritu.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>Tus labios son un portal. Protégelos. Aura Mielitae es un bálsamo sedoso que se funde al instante, creando un velo de confort y protección duradera. Repara, hidrata y protege para un brillo saludable y natural.</p>' },
@@ -46,7 +46,7 @@ window.onload = function () {
         },
         {
             id: 'elixir-vitae', name: 'Elixir Vitae', subtitle: 'Loción Post-Afeitado Equilibrante y Restauradora', price: 60000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Elixir+Vitae'],
+            images: ['images/Elixir-vitae.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Árbol de Té y Mentol:</strong> El aliento de una cima helada; calma el ardor y deja una frescura tonificante.</li><li><strong>Ácido Hialurónico y Glicerina:</strong> Un río de hidratación que restaura la humedad perdida.</li><li><strong>Aceite de Argán y Pepita de Uva:</strong> Reconstruyen la barrera de la piel sin dejar sensación grasa.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>El afeitado es fuego y acero. Elixir Vitae es el agua que lo calma. Restaura el equilibrio, hidrata y tonifica, dejando la piel suave, fresca y resiliente. Transforma la agresión en un momento de restauración.</p>' },
@@ -55,7 +55,7 @@ window.onload = function () {
         },
         {
             id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 22000,
-            images: ['https://placehold.co/600x600/2c2c31/A88F64?text=Nectar+Divinum'],
+            images: ['images/Nectar-Divinum.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Argán:</strong> Nutren el folículo y sellan la cutícula para un brillo excepcional.</li><li><strong>Ácido Hialurónico:</strong> Un milagro de hidratación para el cuero cabelludo, creando una base sana.</li><li><strong>Sándalo y Tomillo:</strong> Calma el cuero cabelludo y promueve un flujo de energía saludable.</li><li><strong>Ricino y Coco:</strong> Aceites ancestrales que fortalecen, espesan y nutren profundamente la hebra capilar.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>La unción final para un cabello de otro mundo. Un aceite precioso y ligero que se absorbe sin apelmazar. Sella puntas, domestica el frizz, nutre el cuero cabelludo y otorga un brillo espectacular.</p>' },
