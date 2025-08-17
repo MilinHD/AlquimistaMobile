@@ -27,7 +27,7 @@ window.onload = function () {
             ]
         },
         {
-            id: 'nox-lucens', name: 'Nox Lucens', subtitle: 'Acondicionador Sólido Nutritivo y Reparador', price: 28000,
+            id: 'nox-lucens', name: 'Nox Lucens', subtitle: 'Acondicionador Sólido Nutritivo y Reparador', price: 34000,
             images: ['images/Nox-Lucens.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Manteca de Cacao:</strong> El oro graso de la selva, un emoliente que devuelve la flexibilidad y la suavidad.</li><li><strong>Miel (Fēng Mì) y Cera de Abejas:</strong> Un dúo que sella la cutícula, atrapando la hidratación y reduciendo el frizz.</li><li><strong>Vitamina E:</strong> Un antioxidante esencial que protege al cabello del estrés ambiental.</li></ul>` },
