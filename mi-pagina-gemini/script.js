@@ -54,7 +54,7 @@ window.onload = function () {
             ]
         },
         {
-            id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 22000,
+            id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 26000,
             images: ['images/Nectar-Divinum.jpg'],
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Argán:</strong> Nutren el folículo y sellan la cutícula para un brillo excepcional.</li><li><strong>Ácido Hialurónico:</strong> Un milagro de hidratación para el cuero cabelludo, creando una base sana.</li><li><strong>Sándalo y Tomillo:</strong> Calma el cuero cabelludo y promueve un flujo de energía saludable.</li><li><strong>Ricino y Coco:</strong> Aceites ancestrales que fortalecen, espesan y nutren profundamente la hebra capilar.</li></ul>` },
