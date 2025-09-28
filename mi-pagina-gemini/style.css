@@ -194,3 +194,37 @@ h3, h4 {
 .text-oro-viejo {
     color: var(--color-oro-viejo);
 }
+/* =================================================================== */
+/* Clases de Color Personalizadas para la Paleta del Alquimista */
+/* =================================================================== */
+
+/* --- Colores de Texto --- */
+.text-luz-de-vela {
+    color: var(--color-luz-de-vela);
+}
+
+.text-oro-viejo {
+    color: var(--color-oro-viejo);
+}
+
+.text-purpura-alquimista {
+    color: var(--color-purpura-alquimista);
+}
+
+/* --- Colores de Fondo --- */
+.bg-noche-alquimista {
+    background-color: var(--color-noche-alquimista);
+}
+
+.bg-pizarra-suave {
+    background-color: var(--color-pizarra-suave);
+}
+
+/* --- Colores de Borde --- */
+.border-oro-viejo {
+    border-color: var(--color-oro-viejo);
+}
+
+.border-purpura-alquimista {
+    border-color: var(--color-purpura-alquimista);
+}
