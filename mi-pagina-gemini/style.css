@@ -177,3 +177,20 @@ h3, h4 {
 .font-cinzel {
     font-family: 'Cinzel', serif;
 }
+/* Para ocultar la barra de scroll en el grimorio de Arquetipos */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+/* =================================================================== */
+/* Clases de Color Personalizadas */
+/* =================================================================== */
+
+/* Definición para la clase de texto color Oro Viejo */
+.text-oro-viejo {
+    color: var(--color-oro-viejo);
+}
