@@ -119,14 +119,14 @@
                  data-aos-delay="100">
                 <div class="flex-shrink-0 w-16 sm:w-32"></div> <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
                     <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
-                        <img src="images/arquetipo-lithosylvan.png" alt="Símbolo de la Tribu Lithosylvan" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <img src="images/glifo-lithosylvan.png" alt="Glifo de la Tribu Lithosylvan" class="w-full h-full object-contain">
 
                         <h3 class="text-2xl text-oro-viejo font-cinzel">Los Lithosylvan</h3>
                         <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría de la Estructura</p>
                         <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
                             Una tribu de pureza ancestral, cuya fuerza legendaria nace de la integridad de la forma y la resiliencia de la piedra.
                         </p>
-                        <a href="#saga-lithosylvan" class="btn btn-outline mt-auto">[ Descubrir la Saga ]</a>
+                        <button data-arquetipo="lithosylvan" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
                     </div>
                 </div>
 
@@ -147,20 +147,7 @@
                 <div class="flex-shrink-0 w-16 sm:w-32"></div>
             </div>
 
-            <div id="saga-lithosylvan" class="max-w-xl mx-auto text-center py-16 px-6" data-aos="fade-up">
-                <h3 class="text-3xl text-oro-viejo mb-4 font-cinzel">La Revelación del Arconte Kaelus</h3>
-                <div class="text-luz-de-vela/90 space-y-4 text-left">
-                    <p>
-                        Cuando la Falla de <strong>Radix Rigidus</strong> amenazaba con petrificar a su pueblo, el Arconte Kaelus se retiró a un observatorio olvidado. Vio el poder del Sol (Yang), que purificaba la tierra, pero a diferencia de sus ancestros, se quedó a observar la noche.
-                    </p>
-                    <p>
-                        Vio que la Luna (Yin) devolvía la humedad a la tierra agrietada, permitiendo que el mundo se nutriera. Su gran revelación fue que la fuerza del Sol, sin el contrapeso de la Luna, era una fuerza incompleta. La verdadera fuerza era la <strong>Resiliencia Flexible</strong>.
-                    </p>
-                    <p class="italic mt-4">
-                        Esta saga es una alegoría de la cultura moderna del esfuerzo (hustle culture), que glorifica la acción incesante (Yang) mientras desprecia el descanso (Yin) como un signo de debilidad.
-                    </p>
-                </div>
-            </div>
+
         </section>
 
         <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen">
@@ -255,5 +242,18 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js"></script>
+    <div id="grimorio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-noche-alquimista/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300">
+
+        <div id="grimorio-content" class="bg-pizarra-suave border border-oro-viejo rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative transform scale-95 transition-transform duration-300 scrollbar-hide">
+
+            <button id="close-grimorio-btn" class="absolute top-4 right-4 text-oro-viejo hover:text-luz-de-vela z-20">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div id="grimorio-body" class="p-8 pt-16">
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

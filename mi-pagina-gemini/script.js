@@ -63,6 +63,32 @@ window.onload = function () {
             ]
         }
     ];
+    // Objeto de Arquetipos CORREGIDO
+    const arquetipos = {
+        lithosylvan: {
+            titulo: "Los Lithosylvan",
+            glifo: "images/glifo-lithosylvan.png", // Asegúrate de que este sea el nombre de tu archivo de glifo
+            don: {
+                titulo: "El Don: Radix, la Pureza de la Forma",
+                descripcion: "La capacidad de crear estructuras perfectas, resilientes y puras. Es la sabiduría de la base sólida, la disciplina y la integridad inquebrantable."
+            },
+            falla: {
+                titulo: "La Falla: Radix Rigidus, la Petrificación del Espíritu",
+                descripcion: "Cuando la estructura se vuelve rígida, se convierte en una prisión. Es el estancamiento, la incapacidad de adaptarse y la fragilidad que se esconde detrás de una dureza aparente."
+            },
+            saga: {
+                titulo: "La Revelación del Arconte Kaelus",
+                parrafos: [
+                    "Cuando la Falla de Radix Rigidus amenazaba con petrificar a su pueblo, el Arconte Kaelus se retiró a un observatorio olvidado. Vio el poder del Sol (Yang), que purificaba la tierra, pero a diferencia de sus ancestros, se quedó a observar la noche.",
+                    "Vio que la Luna (Yin) devolvía la humedad a la tierra agrietada, permitiendo que el mundo se nutriera. Su gran revelación fue que la fuerza del Sol, sin el contrapeso de la Luna, era una fuerza incompleta. La verdadera fuerza era la <strong>Resiliencia Flexible</strong>.",
+                    "Esta saga es una alegoría de la cultura moderna del esfuerzo (hustle culture), que glorifica la acción incesante (Yang) mientras desprecia el descanso (Yin) como un signo de debilidad."
+                ]
+            },
+            // --- LÍNEA CORREGIDA ---
+            artefactos: ['petra-lorien', 'nox-lucens'] // Los IDs correctos de los productos asociados
+        }
+        // Aquí podremos añadir 'chironai', 'mellisonae', etc. en el futuro
+    };
 
     const phoneNumber = '573196805286';
     const galleryView = document.getElementById('formulaciones-gallery');
@@ -244,4 +270,85 @@ window.onload = function () {
     // Initialize App
     setupEventListeners();
     renderGallery();
+    // ===================================================================
+    // Lógica del Grimorio Revelado
+    // ===================================================================
+    const modal = document.getElementById('grimorio-modal');
+    const modalContent = document.getElementById('grimorio-content');
+    const modalBody = document.getElementById('grimorio-body');
+    const closeBtn = document.getElementById('close-grimorio-btn');
+    const openBtns = document.querySelectorAll('.open-grimorio-btn');
+
+    function openGrimorio(arquetipoId) {
+        const data = arquetipos[arquetipoId];
+        if (!data) return;
+
+        // Construir el contenido del grimorio dinámicamente
+        modalBody.innerHTML = `
+            <div class="text-center mb-8">
+                <div class="w-24 h-24 mx-auto mb-4">
+                    <img src="${data.glifo}" alt="Glifo de ${data.titulo}" class="w-full h-full object-contain">
+                </div>
+                <h2 class="text-3xl text-oro-viejo font-cinzel">${data.titulo}</h2>
+            </div>
+
+            <div class="space-y-8 text-luz-de-vela/90">
+                <div>
+                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.don.titulo}</h3>
+                    <p class="text-sm">${data.don.descripcion}</p>
+                </div>
+                <div>
+                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.falla.titulo}</h3>
+                    <p class="text-sm">${data.falla.descripcion}</p>
+                </div>
+                <div>
+                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.saga.titulo}</h3>
+                    <div class="space-y-3 text-sm">
+                        ${data.saga.parrafos.map(p => `<p>${p}</p>`).join('')}
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl text-purpura-alquimista mb-4 font-semibold">Artefactos Asociados</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        ${data.artefactos.map(artefactoId => {
+            const producto = products.find(p => p.id === artefactoId);
+            if (!producto) return '';
+            return `
+                                <div class="text-center">
+                                    <img src="${producto.images[0]}" alt="${producto.name}" class="rounded-md mb-2 aspect-square object-cover">
+                                    <h4 class="text-sm font-semibold text-oro-viejo">${producto.name}</h4>
+                                </div>
+                            `;
+        }).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Mostrar el modal
+        modal.classList.remove('invisible', 'opacity-0');
+        modalContent.classList.remove('scale-95');
+    }
+
+    function closeGrimorio() {
+        modal.classList.add('opacity-0');
+        modalContent.classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('invisible');
+        }, 300); // Coincide con la duración de la transición
+    }
+
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const arquetipoId = btn.dataset.arquetipo;
+            openGrimorio(arquetipoId);
+        });
+    });
+
+    closeBtn.addEventListener('click', closeGrimorio);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeGrimorio();
+        }
+    });
 };
