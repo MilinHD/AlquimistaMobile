@@ -277,7 +277,7 @@ function showGallery() {
     setupEventListeners();
     renderGallery();
     // ===================================================================
-    // Lógica del Grimorio Revelado (Versión Mejorada)
+    // Lógica del Grimorio Revelado (Versión Final con Artefactos Clickables)
     // ===================================================================
     const modal = document.getElementById('grimorio-modal');
     const modalContent = document.getElementById('grimorio-content');
@@ -291,7 +291,7 @@ function showGallery() {
         modalContent.classList.add('scale-95');
         setTimeout(() => {
             modal.classList.add('invisible');
-        }, 300); // Coincide con la duración de la transición
+        }, 300);
     }
 
     // Función principal para abrir el grimorio
@@ -299,7 +299,6 @@ function showGallery() {
         const data = arquetipos[arquetipoId];
         if (!data) return;
 
-        // Construir el contenido del grimorio dinámicamente
         modalBody.innerHTML = `
             <div class="text-center mb-8">
                 <div class="w-32 h-32 mx-auto mb-4">
@@ -329,11 +328,12 @@ function showGallery() {
                         ${data.artefactos.map(artefactoId => {
             const producto = products.find(p => p.id === artefactoId);
             if (!producto) return '';
+            // --- AHORA CADA ARTEFACTO ES UN ENLACE ---
             return `
-                                <div class="text-center">
+                                <a href="#" data-product-id="${producto.id}" class="text-center block product-link-from-grimorio transition-transform duration-200 hover:scale-105">
                                     <img src="${producto.images[0]}" alt="${producto.name}" class="rounded-md mb-2 aspect-square object-cover">
                                     <h4 class="text-sm font-semibold text-oro-viejo">${producto.name}</h4>
-                                </div>
+                                </a>
                             `;
         }).join('')}
                     </div>
@@ -341,32 +341,20 @@ function showGallery() {
             </div>
         `;
 
-        // Mostrar el modal con su animación
         modal.classList.remove('invisible', 'opacity-0');
         modalContent.classList.remove('scale-95');
-
-        // CAMBIO 2: Añadimos una entrada al historial del navegador para capturar el botón "atrás"
         location.hash = arquetipoId;
     }
 
     // Función principal para cerrar el grimorio
     function closeGrimorio() {
-        // Limpiamos la entrada del historial, lo que activará el evento 'hashchange'
         const base = window.location.href.split('#')[0];
-        history.replaceState(null, null, base); // Limpia la URL sin recargar
+        history.replaceState(null, null, base);
         closeGrimorioAnimation();
     }
 
     // --- Event Listeners ---
-    // --- AÑADIDO: Listener para el botón "atrás" del navegador/celular ---
-    window.addEventListener('popstate', (event) => {
-        // Si el estado del historial no es la vista de detalle (es decir, el usuario ha ido "atrás")
-        // Y la vista de detalle está actualmente visible, entonces mostramos la galería.
-        if (!detailView.classList.contains('hidden')) {
-            showGallery();
-        }
-    });
-    // Para abrir el modal
+
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const arquetipoId = e.currentTarget.dataset.arquetipo;
@@ -374,21 +362,41 @@ function showGallery() {
         });
     });
 
-    // Para cerrar con el botón 'X'
     closeBtn.addEventListener('click', closeGrimorio);
 
-    // Para cerrar haciendo clic fuera del contenido
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeGrimorio();
         }
     });
 
-    // CAMBIO 2 (CONT.): El listener que escucha el botón "atrás" del celular/navegador
+    // Listener para los enlaces de artefactos DENTRO del modal
+    modalBody.addEventListener('click', (e) => {
+        const link = e.target.closest('.product-link-from-grimorio');
+        if (link) {
+            e.preventDefault(); // Evita que la página salte
+            const productId = link.dataset.productId;
+
+            // Cerramos el grimorio y, justo después, mostramos el detalle del producto
+            closeGrimorio();
+            setTimeout(() => {
+                showProductDetail(productId);
+            }, 350); // Un pequeño retraso para que la animación de cierre se complete
+        }
+    });
+
+    // Listener para el botón "atrás" que afecta al Grimorio
     window.addEventListener('hashchange', () => {
-        if (location.hash === '') {
-            // Si el hash se ha limpiado (por el botón 'atrás'), cerramos la animación
+        const isArquetipoHash = Object.keys(arquetipos).some(id => `#${id}` === location.hash);
+        if (!isArquetipoHash && !modal.classList.contains('invisible')) {
             closeGrimorioAnimation();
+        }
+    });
+
+    // Listener para el botón "atrás" que afecta a la Tienda
+    window.addEventListener('popstate', (event) => {
+        if (!detailView.classList.contains('hidden')) {
+            showGallery();
         }
     });
 };
