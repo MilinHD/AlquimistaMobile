@@ -7,7 +7,7 @@ window.onload = function () {
     });
 
     // ===================================================================
-    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL CON NUEVA ARQUITECTURA)
+    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL Y COMPLETA)
     // ===================================================================
     const products = [
         {
@@ -15,7 +15,7 @@ window.onload = function () {
             name: 'Panacea Summus',
             subtitle: 'El Bálsamo de los Ecos Opuestos',
             price: 38000,
-            images: ['images/producto-panacea.jpg'], // Reemplaza 'producto-panacea.jpg' con el nombre de tu imagen
+            images: ['images/Panacea-Summus.jpg'],
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -40,7 +40,7 @@ window.onload = function () {
             name: 'Petra Lorien',
             subtitle: 'El Ritual del Origen Puro',
             price: 38000,
-            images: ['images/producto-petra-lorien.jpg'], // Reemplaza con el nombre de tu imagen
+            images: ['images/Petra-Lorien.jpg'],
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -64,8 +64,8 @@ window.onload = function () {
             id: 'nox-lucens',
             name: 'Nox Lucens',
             subtitle: 'El Ritual del Sello Flexible',
-            price: 28000,
-            images: ['images/producto-nox-lucens.jpg'], // Reemplaza con el nombre de tu imagen
+            price: 34000,
+            images: ['images/Nox-Lucens.jpg'],
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -85,33 +85,79 @@ window.onload = function () {
                 }
             ]
         },
-        // Los productos restantes mantienen su estructura original por ahora.
-        // Puedes actualizarlos en el futuro siguiendo el nuevo formato de 4 acordeones.
         {
-            id: 'aura-mielitae', name: 'Aura Mielitae', subtitle: 'Bálsamo Labial Protector y Reparador', price: 26000,
-            images: ['images/producto-aura-mielitae.jpg'], // Reemplaza con el nombre de tu imagen
+            id: 'aura-mielitae',
+            name: 'Aura Mielitae',
+            subtitle: 'El Sello Protector de la Colmena',
+            price: 26000,
+            images: ['images/Aura-Mielitae.jpg'],
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cera de Abejas y Manteca de Karité:</strong> Crean un velo protector que defiende la delicada piel de los labios.</li><li><strong>Caléndula:</strong> La flor sanadora que repara las fisuras y calma la irritación.</li><li><strong>Sándalo:</strong> Un ancla meditativa, cuya esencia calma la mente y el espíritu.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>Tus labios son un portal. Protégelos. Aura Mielitae es un bálsamo sedoso que se funde al instante, creando un velo de confort y protección duradera. Repara, hidrata y protege para un brillo saludable y natural.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>Nace del ritual Chironai del "Sello del Orador". La cera sella, la miel nutre y la esencia de Sándalo calma la mente para que las palabras sean verdaderas y sanadoras.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>Tus labios son el umbral entre tu mundo interior y el exterior. Este bálsamo no es una simple capa de brillo; es un sello sagrado. Inspirado en la alquimia de la colmena, crea un velo protector que calma, repara y defiende la delicada piel de los labios, honrando el portal de tu aliento y tu palabra.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Desliza suavemente sobre los labios. Siente cómo se funde al instante en un velo de confort. Úsalo como un escudo contra el viento y el frío, o como un ritual nocturno para reparar y nutrir mientras descansas.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> La Cera de Abejas y la Manteca de Karité forman una barrera oclusiva y emoliente que previene la pérdida de humedad. La Caléndula, con sus potentes activos antiinflamatorios, calma la irritación y acelera la reparación de fisuras.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> La Cera de Abejas (Feng La) crea un escudo que protege contra la invasión de "Viento-Frío". La Caléndula (Jin Zhan Ju) "aclara el Calor" (inflamación), mientras la base rica "nutre el Yin" de la piel.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto nace de la sabiduría de la Conciencia Mellisonae, los tejedores del Velo Cósmico.</p><button data-arquetipo="mellisonae" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
+                }
             ]
         },
         {
-            id: 'elixir-vitae', name: 'Elixir Vitae', subtitle: 'Loción Post-Afeitado Equilibrante y Restauradora', price: 60000,
-            images: ['images/producto-elixir-vitae.jpg'], // Reemplaza con el nombre de tu imagen
+            id: 'elixir-vitae',
+            name: 'Elixir Vitae',
+            subtitle: 'El Elixir de la Renovación',
+            price: 60000,
+            images: ['images/Elixir-Vitae.jpg'],
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Árbol de Té y Mentol:</strong> El aliento de una cima helada; calma el ardor y deja una frescura tonificante.</li><li><strong>Ácido Hialurónico y Glicerina:</strong> Un río de hidratación que restaura la humedad perdida.</li><li><strong>Aceite de Argán y Pepita de Uva:</strong> Reconstruyen la barrera de la piel sin dejar sensación grasa.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>El afeitado es fuego y acero. Elixir Vitae es el agua que lo calma. Restaura el equilibrio, hidrata y tonifica, dejando la piel suave, fresca y resiliente. Transforma la agresión en un momento de restauración.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>Es el "Alivio del Crisol" para los maestros Geoforjas. El afeitado genera "fuego tóxico" en la piel. Elixir Vitae "apaga el fuego" y crea un "filtro de rocío", una barrera invisible contra el aire cáustico.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>El afeitado es un ritual de fuego y acero, una agresión necesaria. Este elixir es la alquimia que transmuta ese trauma en un acto de renovación. No solo calma el ardor; guía a la piel a través de un ciclo de purificación y restauración para que emerja más fuerte y resiliente.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Después del afeitado, sobre la piel seca, rocía una bruma generosa. Siente el choque inicial purificante, seguido por una ola de calma e hidratación profunda. Da suaves toques con las palmas para sellar el ritual.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> Es una fórmula secuencial. La fase de asepsia (Etanol, Árbol de Té) desinfecta los microcortes para prevenir la foliculitis. La fase de reparación (Ácido Hialurónico, Glicerina, Aceites) rehidrata intensamente y restaura la barrera cutánea dañada.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> El Etanol y el Árbol de Té "aclaran el Calor Tóxico" del trauma. Inmediatamente después, los ingredientes humectantes "nutren el Yin y la Sangre", y la fórmula completa "restaura el Wei Qi" (energía defensiva) de la piel.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto nace de la sabiduría de la Tribu Mutabilis, los maestros de la adaptación y la resiliencia.</p><button data-arquetipo="mutabilis" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
+                }
             ]
         },
         {
-            id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 22000,
-            images: ['images/producto-nectar-divinum.jpg'], // Reemplaza con el nombre de tu imagen
+            id: 'nectar-divinum',
+            name: 'Nectar Divinum',
+            subtitle: 'El Rocío de la Vitalidad Sagrada',
+            price: 26000,
+            images: ['images/Nectar-Divinum.jpg'],
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Argán:</strong> Nutren el folículo y sellan la cutícula para un brillo excepcional.</li><li><strong>Ácido Hialurónico:</strong> Un milagro de hidratación para el cuero cabelludo, creando una base sana.</li><li><strong>Sándalo y Tomillo:</strong> Calma el cuero cabelludo y promueve un flujo de energía saludable.</li><li><strong>Ricino y Coco:</strong> Aceites ancestrales que fortalecen, espesan y nutren profundamente la hebra capilar.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>La unción final para un cabello de otro mundo. Un aceite precioso y ligero que se absorbe sin apelmazar. Sella puntas, domestica el frizz, nutre el cuero cabelludo y otorga un brillo espectacular.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>Nace de la leyenda de los Lumina, espíritus de luz. Su catalizador es el "Velo de Esporas". El cabello es el "florecimiento del Riñón". Nectar Divinum actúa como un tónico para la Esencia (Jing) y la Sangre (Xue), manifestando una fuerza vital profunda.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>La verdadera vitalidad de tu cabello no se encuentra en la hebra, sino en la conexión con su origen. Este sérum no es un aceite para dar brillo superficial; es un tónico para la Esencia (Jing), diseñado para nutrir el cuero cabelludo y reconectar la raíz con su fuente de poder primordial.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Como un ritual pre-lavado, aplica unas gotas directamente sobre el cuero cabelludo. Masajea suavemente con las yemas de los dedos, visualizando cómo la energía desciende y nutre cada folículo. Deja actuar por al menos 30 minutos antes de purificar.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> Es un sérum bioactivo para el folículo. Activos como el Cannabis y el Tomillo calman la microinflamación, mientras el Ácido Hialurónico hidrata profundamente la piel del cuero cabelludo, creando un entorno óptimo para el crecimiento.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> Es un tónico supremo para la Esencia del Riñón (Jing) y la Sangre (Xue). Sus aceites de semillas nutren el Jing, y las hierbas activas limpian el terreno de "Viento-Humedad", permitiendo que la vitalidad fluya sin obstrucción a la raíz.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto es la reconstrucción del rocío sagrado que emana de la Vitalidad Arborian, la esencia misma del Axis Vitae.</p><button data-arquetipo="arborian" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Origen ]</button>'
+                }
             ]
         }
     ];
@@ -422,19 +468,29 @@ function showGallery() {
         closeGrimorioAnimation();
     }
 
-    // --- Event Listeners ---
+    // ===================================================================
+    // Event Listeners (VERSIÓN FINAL Y COMPLETA)
+    // ===================================================================
+
+    // Para abrir el modal del Grimorio desde las cartas de Arquetipo
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const arquetipoId = e.currentTarget.dataset.arquetipo;
             openGrimorio(arquetipoId);
         });
     });
+
+    // Para cerrar el Grimorio con el botón 'X'
     closeBtn.addEventListener('click', closeGrimorio);
+
+    // Para cerrar el Grimorio haciendo clic fuera del contenido
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeGrimorio();
         }
     });
+
+    // Para hacer clickables los artefactos DENTRO del Grimorio
     modalBody.addEventListener('click', (e) => {
         const link = e.target.closest('.product-link-from-grimorio');
         if (link) {
@@ -446,15 +502,44 @@ function showGallery() {
             }, 350);
         }
     });
+
+    // --- CÓDIGO AÑADIDO ---
+    // Listener para los botones "Descubrir Saga" DENTRO de los productos
+    detailView.addEventListener('click', (e) => {
+        const sagaBtn = e.target.closest('.open-grimorio-btn-from-product');
+        if (sagaBtn) {
+            e.preventDefault(); // Prevenimos cualquier comportamiento por defecto del botón
+            const arquetipoId = sagaBtn.dataset.arquetipo;
+
+            // Si el arquetipo existe en nuestra base de datos, procedemos
+            if (arquetipos[arquetipoId]) {
+                // Primero cerramos la vista de la tienda y, justo después, abrimos el grimorio
+                showGallery(); // Esto regresa a la galería principal
+                setTimeout(() => {
+                    openGrimorio(arquetipoId);
+                }, 350); // Un pequeño retraso para una transición suave
+            } else {
+                // Si el arquetipo aún no está definido (ej. para un producto de una tribu futura), no hacemos nada o mostramos un aviso.
+                console.warn(`El arquetipo "${arquetipoId}" aún no ha sido definido en el grimorio.`);
+                // Opcionalmente, podrías mostrar una alerta al usuario.
+                // alert(`La saga para el arquetipo "${arquetipoId}" será revelada próximamente.`);
+            }
+        }
+    });
+    // --- FIN DEL CÓDIGO AÑADIDO ---
+
+    // Listener para el botón "atrás" que afecta al Grimorio
     window.addEventListener('hashchange', () => {
         const isArquetipoHash = Object.keys(arquetipos).some(id => `#${id}` === location.hash);
         if (!isArquetipoHash && !modal.classList.contains('invisible')) {
             closeGrimorioAnimation();
         }
     });
+
+    // Listener para el botón "atrás" que afecta a la Tienda
     window.addEventListener('popstate', (event) => {
         if (!detailView.classList.contains('hidden')) {
             showGallery();
         }
     });
-};
+}; // Esta es la llave de cierre del 'window.onload', asegúrate de que esté al final.
