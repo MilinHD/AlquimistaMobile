@@ -19,8 +19,15 @@
 <body class="overflow-x-hidden">
 
     <header id="main-header" class="fixed top-0 right-0 p-4 z-50">
-        <button id="menu-btn" class="w-10 h-10 p-2">
-            <svg class="w-full h-full text-oro-viejo" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <button id="glifo-btn" class="w-12 h-12 p-2 text-oro-viejo hover:text-luz-de-vela transition-colors duration-300">
+            <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 2.5L56.25 21.25L50 12.5L43.75 21.25L50 2.5Z" stroke="currentColor" stroke-width="3" />
+                <path d="M50 97.5L56.25 78.75L50 87.5L43.75 78.75L50 97.5Z" stroke="currentColor" stroke-width="3" />
+                <path d="M2.5 50L21.25 43.75L12.5 50L21.25 56.25L2.5 50Z" stroke="currentColor" stroke-width="3" />
+                <path d="M97.5 50L78.75 43.75L87.5 50L78.75 56.25L97.5 50Z" stroke="currentColor" stroke-width="3" />
+                <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="3" />
+                <circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 5" />
+            </svg>
         </button>
     </header>
     <div id="menu-overlay" class="fixed inset-0 z-40 flex-col items-center justify-center hidden opacity-0 invisible">
