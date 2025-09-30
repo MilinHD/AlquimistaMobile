@@ -6,38 +6,90 @@ window.onload = function () {
         once: true,
     });
 
+    // ===================================================================
+    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL CON NUEVA ARQUITECTURA)
+    // ===================================================================
     const products = [
         {
-            id: 'panacea-summus', name: 'Panacea Summus', subtitle: 'Ungüento de Alivio Profundo', price: 38000,
-            images: ['images/Panacea-Summus.jpg'],
+            id: 'panacea-summus',
+            name: 'Panacea Summus',
+            subtitle: 'El Bálsamo de los Ecos Opuestos',
+            price: 38000,
+            images: ['images/producto-panacea.jpg'], // Reemplaza 'producto-panacea.jpg' con el nombre de tu imagen
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Manzanilla:</strong> Un dúo potente que calma la inflamación y apacigua la respuesta del cuerpo al dolor profundo.</li><li><strong>Alcanfor y Mentol:</strong> El aliento de la montaña. Generan una dualidad de frío y calor que confunde al dolor y relaja la tensión.</li><li><strong>Caléndula y Romero:</strong> Repara la piel estresada, mientras el espíritu del romero estimula la circulación de la energía (Qi).</li><li><strong>Ylang Ylang:</strong> Una nota floral exótica que ayuda a calmar el espíritu (Shen) asociado a la molestia física.</li><li><strong>Base de Cera de Abejas y Karité:</strong> Un vehículo rico que sella los activos en la piel para una liberación lenta y sostenida.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>Este no es un simple ungüento, es un ritual de liberación. Formulado para penetrar en el tejido y disolver los nudos de tensión. Es el aliado para el dolor muscular, la rigidez articular, o cuando el cuerpo simplemente pide restauración.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>En la MTC, el dolor es un grito del Qi (energía vital) que está estancado. Panacea Summus es una fórmula de espíritu Lithosylvan: fuerte y directa. Mueve vigorosamente la sangre (Xue) y el Qi, rompiendo el bloqueo y calmando el Shen, tratando así la manifestación física y espiritual del dolor.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>Este no es un ungüento; es un ritual de liberación. Una fórmula que no ataca el dolor, sino que lo desordena con un eco de frío y calor, permitiendo que tu cuerpo recuerde su propia armonía y suelte el nudo de la tensión.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Toma una pequeña cantidad con tu dedo. Aplica con un masaje lento y circular sobre la zona en desequilibrio hasta que sientas cómo el eco de los opuestos comienza su diálogo con tu piel. Respira profundo. Permite que el flujo se restaure.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> Actúa a través de la "Teoría de la Compuerta del Dolor". El frío del Mentol (receptor TRPM8) y el calor del Alcanfor (receptores TRPV1) sobrecargan las vías neuronales, cerrando la compuerta a la señal del dolor, mientras activos como el Cannabis y la Caléndula reducen la inflamación.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> Es una fórmula magistral para el Bi Zheng (Obstrucción Dolorosa). Ingredientes calientes como el Alcanfor "expulsan el Frío", mientras ingredientes fríos como el Mentol "aclaran el Calor", restaurando el equilibrio dinámico y el flujo de Qi y Sangre.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto nace de la sabiduría de la Tribu Chironai, los sanadores empáticos de Anima Mundi.</p><button data-arquetipo="chironai" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
+                }
             ]
         },
-        // ... Pega aquí el resto de tus productos de la misma forma ...
         {
-            id: 'petra-lorien', name: 'Petra Lorien', subtitle: 'Shampoo Sólido Purificante y Fortalecedor', price: 38000,
-            images: ['images/Petra-Lorien.jpg'],
+            id: 'petra-lorien',
+            name: 'Petra Lorien',
+            subtitle: 'El Ritual del Origen Puro',
+            price: 38000,
+            images: ['images/producto-petra-lorien.jpg'], // Reemplaza con el nombre de tu imagen
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Bentonita:</strong> El corazón de arcilla de la tierra, un imán natural para las impurezas y el exceso de grasa.</li><li><strong>Árbol de Té y Menta:</strong> El aliento antiséptico del bosque, que purifica profundamente el cuero cabelludo.</li><li><strong>Cannabis y Romero:</strong> Un dúo que fortalece el folículo y estimula la circulación para un crecimiento sano.</li><li><strong>Miel (Fēng Mì):</strong> Aporta hidratación y brillo, asegurando que la limpieza profunda nunca sea agresiva.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>Libera tu cabello de lo innecesario. Petra Lorien genera una espuma rica y purificante, limpiando desde la raíz sin despojar al cabello de su esencia. Fortalece, equilibra y deja una sensación de ligereza incomparable.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>Inspirado en la filosofía Lithosylvan. Un cuero cabelludo congestionado por "calor húmedo" estanca el Qi. La arcilla y los botánicos clarifican, eliminan el estancamiento y fortalecen la raíz.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>Un cabello sano no es el que se cubre; es el que nace de una tierra fértil. Este shampoo sólido purifica profundamente el cuero cabelludo, eliminando el exceso que ahoga la raíz para que la verdadera vitalidad pueda despertar.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Humedece la pastilla y frótala suavemente en tus manos para crear una espuma rica y cremosa. Masajea la espuma sobre el cuero cabelludo con intención, sintiendo cómo purificas el origen. Aclara con abundante agua.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> La Arcilla de Bentonita absorbe el exceso de sebo. Activos como el Romero y la Menta estimulan la microcirculación, llevando nutrientes al folículo, mientras el Árbol de Té controla la microbiota.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> Es un ritual Yang. "Aclara el Calor-Humedad" del cuero cabelludo con la Arcilla y las hierbas frías, y "mueve el Qi y la Sangre estancada" con el Romero para nutrir la raíz.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto nace de la sabiduría de la Tribu Lithosylvan, los maestros de la estructura.</p><button data-arquetipo="lithosylvan" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
+                }
             ]
         },
         {
-            id: 'nox-lucens', name: 'Nox Lucens', subtitle: 'Acondicionador Sólido Nutritivo y Reparador', price: 34000,
-            images: ['images/Nox-Lucens.jpg'],
+            id: 'nox-lucens',
+            name: 'Nox Lucens',
+            subtitle: 'El Ritual del Sello Flexible',
+            price: 28000,
+            images: ['images/producto-nox-lucens.jpg'], // Reemplaza con el nombre de tu imagen
             accordion: [
-                { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Manteca de Cacao:</strong> El oro graso de la selva, un emoliente que devuelve la flexibilidad y la suavidad.</li><li><strong>Miel (Fēng Mì) y Cera de Abejas:</strong> Un dúo que sella la cutícula, atrapando la hidratación y reduciendo el frizz.</li><li><strong>Vitamina E:</strong> Un antioxidante esencial que protege al cabello del estrés ambiental.</li></ul>` },
-                { title: 'La Promesa del Alquimista', content: '<p>La noche que ilumina. Nox Lucens se derrite en una crema sedosa para recubrir y reparar tu cabello. Desenreda, nutre y protege, dejando el cabello increíblemente suave, manejable y con un brillo nocturno.</p>' },
-                { title: 'Sabiduría Ancestral', content: '<p>Si Petra Lorien es Yang (limpieza), Nox Lucens es Yin (nutrición). Es una fórmula Chironai. El cabello sano depende de una Sangre (Xue) abundante. Este acondicionador nutre el "Yin del cabello", sellando su esencia.</p>' }
+                {
+                    title: 'La Promesa del Alquimista',
+                    content: '<p>Si Petra Lorien purifica el origen, Nox Lucens protege la manifestación. Este acondicionador no enmascara el daño; sella la fibra capilar, devolviéndole la flexibilidad, la nutrición y un brillo que parece nacer de la luna.</p>'
+                },
+                {
+                    title: 'El Ritual',
+                    content: '<p>Después de purificar, desliza la barra de medios a puntas. Siente cómo se derrite en una crema sedosa que envuelve cada hebra. Deja actuar un momento, como un manto protector, y luego aclara.</p>'
+                },
+                {
+                    title: 'La Mirada Dual',
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> Su agente catiónico (BTMS) se adhiere a la carga negativa del cabello dañado, neutralizándola y sellando la cutícula. Las Mantecas y Ceras crean una película oclusiva que previene la pérdida de humedad.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> Es un ritual Yin. "Nutre la Sangre (Xue) y el Yin" del cabello, combatiendo la "Sequedad". La Cera de Abejas actúa como una capa de Wei Qi (energía defensiva), protegiendo la esencia de la hebra.</p>'
+                },
+                {
+                    title: 'La Entrada del Códice',
+                    content: '<p>Este artefacto es la segunda mitad del ritual de la Tribu Lithosylvan, la clave de su Resiliencia Flexible.</p><button data-arquetipo="lithosylvan" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
+                }
             ]
         },
+        // Los productos restantes mantienen su estructura original por ahora.
+        // Puedes actualizarlos en el futuro siguiendo el nuevo formato de 4 acordeones.
         {
             id: 'aura-mielitae', name: 'Aura Mielitae', subtitle: 'Bálsamo Labial Protector y Reparador', price: 26000,
-            images: ['images/Aura-Mielitae.jpg'],
+            images: ['images/producto-aura-mielitae.jpg'], // Reemplaza con el nombre de tu imagen
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cera de Abejas y Manteca de Karité:</strong> Crean un velo protector que defiende la delicada piel de los labios.</li><li><strong>Caléndula:</strong> La flor sanadora que repara las fisuras y calma la irritación.</li><li><strong>Sándalo:</strong> Un ancla meditativa, cuya esencia calma la mente y el espíritu.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>Tus labios son un portal. Protégelos. Aura Mielitae es un bálsamo sedoso que se funde al instante, creando un velo de confort y protección duradera. Repara, hidrata y protege para un brillo saludable y natural.</p>' },
@@ -46,7 +98,7 @@ window.onload = function () {
         },
         {
             id: 'elixir-vitae', name: 'Elixir Vitae', subtitle: 'Loción Post-Afeitado Equilibrante y Restauradora', price: 60000,
-            images: ['images/Elixir-vitae.jpg'],
+            images: ['images/producto-elixir-vitae.jpg'], // Reemplaza con el nombre de tu imagen
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Árbol de Té y Mentol:</strong> El aliento de una cima helada; calma el ardor y deja una frescura tonificante.</li><li><strong>Ácido Hialurónico y Glicerina:</strong> Un río de hidratación que restaura la humedad perdida.</li><li><strong>Aceite de Argán y Pepita de Uva:</strong> Reconstruyen la barrera de la piel sin dejar sensación grasa.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>El afeitado es fuego y acero. Elixir Vitae es el agua que lo calma. Restaura el equilibrio, hidrata y tonifica, dejando la piel suave, fresca y resiliente. Transforma la agresión en un momento de restauración.</p>' },
@@ -54,8 +106,8 @@ window.onload = function () {
             ]
         },
         {
-            id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 26000,
-            images: ['images/Nectar-Divinum.jpg'],
+            id: 'nectar-divinum', name: 'Nectar Divinum', subtitle: 'Aceite Capilar Reparador y Luminoso', price: 22000,
+            images: ['images/producto-nectar-divinum.jpg'], // Reemplaza con el nombre de tu imagen
             accordion: [
                 { title: 'Tesoros de Anima Mundi', content: `<ul class="list-disc list-inside space-y-2"><li><strong>Cannabis y Argán:</strong> Nutren el folículo y sellan la cutícula para un brillo excepcional.</li><li><strong>Ácido Hialurónico:</strong> Un milagro de hidratación para el cuero cabelludo, creando una base sana.</li><li><strong>Sándalo y Tomillo:</strong> Calma el cuero cabelludo y promueve un flujo de energía saludable.</li><li><strong>Ricino y Coco:</strong> Aceites ancestrales que fortalecen, espesan y nutren profundamente la hebra capilar.</li></ul>` },
                 { title: 'La Promesa del Alquimista', content: '<p>La unción final para un cabello de otro mundo. Un aceite precioso y ligero que se absorbe sin apelmazar. Sella puntas, domestica el frizz, nutre el cuero cabelludo y otorga un brillo espectacular.</p>' },
