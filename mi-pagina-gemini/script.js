@@ -63,31 +63,40 @@ window.onload = function () {
             ]
         }
     ];
-    // Objeto de Arquetipos CORREGIDO
+    // ===================================================================
+    // LORE DE LOS ARQUETIPOS (VERSIÓN FINAL Y COMPLETA)
+    // ===================================================================
     const arquetipos = {
         lithosylvan: {
             titulo: "Los Lithosylvan",
-            glifo: "images/glifo-lithosylvan.png", // Asegúrate de que este sea el nombre de tu archivo de glifo
-            don: {
-                titulo: "El Don: Radix, la Pureza de la Forma",
-                descripcion: "La capacidad de crear estructuras perfectas, resilientes y puras. Es la sabiduría de la base sólida, la disciplina y la integridad inquebrantable."
+            glifo: "images/glifo-lithosylvan.png",
+
+            filosofia: {
+                titulo: "La Filosofía",
+                contenido: "Para los Lithosylvan, la energía caótica del universo (Flujo) es solo potencial. No adquiere un propósito real hasta que es contenida por una estructura íntegra (Forma)..."
             },
-            falla: {
-                titulo: "La Falla: Radix Rigidus, la Petrificación del Espíritu",
-                descripcion: "Cuando la estructura se vuelve rígida, se convierte en una prisión. Es el estancamiento, la incapacidad de adaptarse y la fragilidad que se esconde detrás de una dureza aparente."
+
+            dualidad: {
+                titulo: "El Don y la Falla",
+                don: "<strong>Don:</strong> Folium Firmus - Fuerza y Pureza Ancestral.",
+                falla: "<strong>Falla:</strong> Radix Rigidus - La rigidez que nace de un exceso de purificación, causando estancamiento de Qi y Humedad Interna."
             },
-            saga: {
-                titulo: "La Revelación del Arconte Kaelus",
-                parrafos: [
-                    "Cuando la Falla de Radix Rigidus amenazaba con petrificar a su pueblo, el Arconte Kaelus se retiró a un observatorio olvidado. Vio el poder del Sol (Yang), que purificaba la tierra, pero a diferencia de sus ancestros, se quedó a observar la noche.",
-                    "Vio que la Luna (Yin) devolvía la humedad a la tierra agrietada, permitiendo que el mundo se nutriera. Su gran revelación fue que la fuerza del Sol, sin el contrapeso de la Luna, era una fuerza incompleta. La verdadera fuerza era la <strong>Resiliencia Flexible</strong>.",
-                    "Esta saga es una alegoría de la cultura moderna del esfuerzo (hustle culture), que glorifica la acción incesante (Yang) mientras desprecia el descanso (Yin) como un signo de debilidad."
+
+            leccion: {
+                titulo: "La Lección Alquímica para el Ser Moderno",
+                contenido: "La lección de los Lithosylvan es para aquellos que, en su búsqueda de la perfección y la fuerza, han creado rigidez en sus vidas. Es el eco del burnout, del control excesivo que endurece el espíritu y estanca la creatividad..."
+            },
+
+            ritual: {
+                titulo: "Artefactos del Ritual de la Resiliencia Flexible",
+                introduccion: "Para superar su Falla, el Arconte Kaelus enseñó a su pueblo un ritual en dos actos: purificar el origen y proteger la manifestación. De esta leyenda, hemos reconstruido dos artefactos que trabajan en perfecta sinergia.",
+                artefactos: [
+                    { id: 'petra-lorien', subtitulo: 'El Artefacto del Sol (Solve)' },
+                    { id: 'nox-lucens', subtitulo: 'El Artefacto de la Luna (et Coagula)' }
                 ]
-            },
-            // --- LÍNEA CORREGIDA ---
-            artefactos: ['petra-lorien', 'nox-lucens'] // Los IDs correctos de los productos asociados
+            }
         }
-        // Aquí podremos añadir 'chironai', 'mellisonae', etc. en el futuro
+        // Aquí podremos añadir los demás arquetipos en el futuro
     };
 
     const phoneNumber = '573196805286';
@@ -277,7 +286,7 @@ function showGallery() {
     setupEventListeners();
     renderGallery();
     // ===================================================================
-    // Lógica del Grimorio Revelado (Versión Final con Artefactos Clickables)
+    // Lógica del Grimorio Revelado (VERSIÓN FINAL Y COMPLETA)
     // ===================================================================
     const modal = document.getElementById('grimorio-modal');
     const modalContent = document.getElementById('grimorio-content');
@@ -299,48 +308,56 @@ function showGallery() {
         const data = arquetipos[arquetipoId];
         if (!data) return;
 
+        // Construir el contenido del grimorio dinámicamente con la nueva estructura
         modalBody.innerHTML = `
-            <div class="text-center mb-8">
-                <div class="w-32 h-32 mx-auto mb-4">
-                    <img src="${data.glifo}" alt="Glifo de ${data.titulo}" class="w-full h-full object-contain">
+        <div class="text-center mb-8">
+            <div class="w-32 h-32 mx-auto mb-4">
+                <img src="${data.glifo}" alt="Glifo de ${data.titulo}" class="w-full h-full object-contain">
+            </div>
+            <h2 class="text-3xl text-oro-viejo font-cinzel">${data.titulo}</h2>
+        </div>
+
+        <div class="space-y-8 text-luz-de-vela/90 text-left">
+            
+            <div>
+                <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.filosofia.titulo}</h3>
+                <p class="text-sm italic">“${data.filosofia.contenido}”</p>
+            </div>
+            
+            <div>
+                <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.dualidad.titulo}</h3>
+                <div class="space-y-2 text-sm">
+                    <p>${data.dualidad.don}</p>
+                    <p>${data.dualidad.falla}</p>
                 </div>
-                <h2 class="text-3xl text-oro-viejo font-cinzel">${data.titulo}</h2>
             </div>
 
-            <div class="space-y-8 text-luz-de-vela/90">
-                <div>
-                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.don.titulo}</h3>
-                    <p class="text-sm">${data.don.descripcion}</p>
-                </div>
-                <div>
-                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.falla.titulo}</h3>
-                    <p class="text-sm">${data.falla.descripcion}</p>
-                </div>
-                <div>
-                    <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.saga.titulo}</h3>
-                    <div class="space-y-3 text-sm">
-                        ${data.saga.parrafos.map(p => `<p>${p}</p>`).join('')}
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl text-purpura-alquimista mb-4 font-semibold">Artefactos Asociados</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        ${data.artefactos.map(artefactoId => {
-            const producto = products.find(p => p.id === artefactoId);
+            <div>
+                <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.leccion.titulo}</h3>
+                <p class="text-sm">"${data.leccion.contenido}"</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl text-purpura-alquimista mb-4 font-semibold">${data.ritual.titulo}</h3>
+                <p class="text-sm mb-6">${data.ritual.introduccion}</p>
+                <div class="grid grid-cols-2 gap-4">
+                    ${data.ritual.artefactos.map(artefacto => {
+            const producto = products.find(p => p.id === artefacto.id);
             if (!producto) return '';
-            // --- AHORA CADA ARTEFACTO ES UN ENLACE ---
             return `
-                                <a href="#" data-product-id="${producto.id}" class="text-center block product-link-from-grimorio transition-transform duration-200 hover:scale-105">
-                                    <img src="${producto.images[0]}" alt="${producto.name}" class="rounded-md mb-2 aspect-square object-cover">
-                                    <h4 class="text-sm font-semibold text-oro-viejo">${producto.name}</h4>
-                                </a>
-                            `;
+                            <a href="#" data-product-id="${producto.id}" class="text-center block product-link-from-grimorio transition-transform duration-200 hover:scale-105">
+                                <img src="${producto.images[0]}" alt="${producto.name}" class="rounded-md mb-2 aspect-square object-cover">
+                                <h4 class="text-sm font-semibold text-oro-viejo">${producto.name}</h4>
+                                <p class="text-xs text-luz-de-vela/70 italic">${artefacto.subtitulo}</p>
+                            </a>
+                        `;
         }).join('')}
-                    </div>
                 </div>
             </div>
-        `;
+        </div>
+    `;
 
+        // El resto de la lógica de control del modal (no cambia)
         modal.classList.remove('invisible', 'opacity-0');
         modalContent.classList.remove('scale-95');
         location.hash = arquetipoId;
@@ -354,46 +371,35 @@ function showGallery() {
     }
 
     // --- Event Listeners ---
-
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const arquetipoId = e.currentTarget.dataset.arquetipo;
             openGrimorio(arquetipoId);
         });
     });
-
     closeBtn.addEventListener('click', closeGrimorio);
-
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeGrimorio();
         }
     });
-
-    // Listener para los enlaces de artefactos DENTRO del modal
     modalBody.addEventListener('click', (e) => {
         const link = e.target.closest('.product-link-from-grimorio');
         if (link) {
-            e.preventDefault(); // Evita que la página salte
+            e.preventDefault();
             const productId = link.dataset.productId;
-
-            // Cerramos el grimorio y, justo después, mostramos el detalle del producto
             closeGrimorio();
             setTimeout(() => {
                 showProductDetail(productId);
-            }, 350); // Un pequeño retraso para que la animación de cierre se complete
+            }, 350);
         }
     });
-
-    // Listener para el botón "atrás" que afecta al Grimorio
     window.addEventListener('hashchange', () => {
         const isArquetipoHash = Object.keys(arquetipos).some(id => `#${id}` === location.hash);
         if (!isArquetipoHash && !modal.classList.contains('invisible')) {
             closeGrimorioAnimation();
         }
     });
-
-    // Listener para el botón "atrás" que afecta a la Tienda
     window.addEventListener('popstate', (event) => {
         if (!detailView.classList.contains('hidden')) {
             showGallery();
