@@ -599,7 +599,7 @@ function showGallery() {
         }
     });
 
-    // --- CÓDIGO AÑADIDO ---
+    // --- ESTE ES EL FRAGMENTO NUEVO, YA INTEGRADO ---
     // Listener para los botones "Descubrir Saga" DENTRO de los productos
     detailView.addEventListener('click', (e) => {
         const sagaBtn = e.target.closest('.open-grimorio-btn-from-product');
@@ -622,7 +622,7 @@ function showGallery() {
             }
         }
     });
-    // --- FIN DEL CÓDIGO AÑADIDO ---
+    // --- FIN DEL FRAGMENTO NUEVO ---
 
     // Listener para el botón "atrás" que afecta al Grimorio
     window.addEventListener('hashchange', () => {
