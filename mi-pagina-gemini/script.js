@@ -162,29 +162,25 @@ window.onload = function () {
         }
     ];
     // ===================================================================
-    // LORE DE LOS ARQUETIPOS (VERSIÓN FINAL Y COMPLETA)
+    // LORE DE LOS ARQUETIPOS (VERSIÓN COMPLETA CON 4 TRIBUS)
     // ===================================================================
     const arquetipos = {
         lithosylvan: {
             titulo: "Los Lithosylvan",
             glifo: "images/glifo-lithosylvan.png",
-
             filosofia: {
                 titulo: "La Filosofía",
                 contenido: "Para los Lithosylvan, la energía caótica del universo (Flujo) es solo potencial. No adquiere un propósito real hasta que es contenida por una estructura íntegra (Forma)..."
             },
-
             dualidad: {
                 titulo: "El Don y la Falla",
                 don: "<strong>Don:</strong> Folium Firmus - Fuerza y Pureza Ancestral.",
                 falla: "<strong>Falla:</strong> Radix Rigidus - La rigidez que nace de un exceso de purificación, causando estancamiento de Qi y Humedad Interna."
             },
-
             leccion: {
                 titulo: "La Lección Alquímica para el Ser Moderno",
                 contenido: "La lección de los Lithosylvan es para aquellos que, en su búsqueda de la perfección y la fuerza, han creado rigidez en sus vidas. Es el eco del burnout, del control excesivo que endurece el espíritu y estanca la creatividad..."
             },
-
             ritual: {
                 titulo: "Artefactos del Ritual de la Resiliencia Flexible",
                 introduccion: "Para superar su Falla, el Arconte Kaelus enseñó a su pueblo un ritual en dos actos: purificar el origen y proteger la manifestación. De esta leyenda, hemos reconstruido dos artefactos que trabajan en perfecta sinergia.",
@@ -193,8 +189,79 @@ window.onload = function () {
                     { id: 'nox-lucens', subtitulo: 'El Artefacto de la Luna (et Coagula)' }
                 ]
             }
+        },
+        chironai: {
+            titulo: "Los Chironai",
+            glifo: "images/arquetipo-chironai.png", // Asegúrate de que el nombre de la imagen sea correcto
+            filosofia: {
+                titulo: "La Filosofía",
+                contenido: "La filosofía Chironai se basa en la convicción de que el dolor no es un enemigo, sino un mensaje. Su sabiduría no busca silenciar el grito del cuerpo, sino traducir su eco, aplicando el frío al calor y el movimiento al estancamiento para restaurar la armonía."
+            },
+            dualidad: {
+                titulo: "El Don y la Falla",
+                don: "<strong>Don:</strong> Echo Sensus - La capacidad de sentir la naturaleza exacta del dolor (si es por Frío, Calor o Estasis) en otros seres.",
+                falla: "<strong>Falla:</strong> Cor Compassionis - La tendencia a absorber el estancamiento de Qi y Sangre de otros, sufriendo su mismo dolor."
+            },
+            leccion: {
+                titulo: "La Lección Alquímica para el Ser Moderno",
+                contenido: "La saga de los Chironai es una alegoría para los empáticos, los cuidadores y los sanadores del mundo moderno. Nos enseña sobre el peligro del burnout por compasión (compassion fatigue) y la necesidad sagrada de establecer límites saludables. Su sabiduría nos recuerda que para poder sanar a otros, primero debemos aprender a no ahogarnos en su dolor."
+            },
+            ritual: {
+                titulo: "Artefacto del Ritual del Eco Equilibrado",
+                introduccion: "Del mito de los espíritus gemelos Lyra y Orion, que aprendieron a no combatir el dolor sino a desordenarlo con un eco de opuestos, hemos reconstruido un artefacto para dialogar con el estancamiento.",
+                artefactos: [
+                    { id: 'panacea-summus', subtitulo: 'El Bálsamo de los Ecos Opuestos' }
+                ]
+            }
+        },
+        mellisonae: {
+            titulo: "Los Mellisonae",
+            glifo: "images/arquetipo-mellisonae.png", // Asegúrate de que el nombre de la imagen sea correcto
+            filosofia: {
+                titulo: "La Filosofía",
+                contenido: "La filosofía Mellisonae enseña que la vida solo puede existir dentro de un límite, una barrera que separa el orden interior de la entropía exterior. Su propósito no es gobernar, sino mantener el Velo, tejer el Sello y proteger lo sagrado."
+            },
+            dualidad: {
+                titulo: "El Don y la Falla",
+                don: "<strong>Don:</strong> Sigillum Unitas - La habilidad de tejer la barrera metafísica que protege la realidad.",
+                falla: "<strong>Falla:</strong> Horror Vacui - Una fobia a la entropía que puede llevarlos a un aislamiento cósmico, causando estancamiento universal."
+            },
+            leccion: {
+                titulo: "La Lección Alquímica para el Ser Moderno",
+                contenido: "La saga de los Mellisonae es una lección sobre los límites saludables. Nos recuerda que para prosperar en un mundo caótico, no necesitamos muros infranqueables, sino membranas inteligentes y resilientes. Es una invitación a honrar nuestra piel, nuestra energía y nuestro espacio personal como un santuario que debe ser protegido para poder florecer."
+            },
+            ritual: {
+                titulo: "Artefacto del Ritual del Sello Cósmico",
+                introduccion: "Del mito de la 'Herida Cósmica', aprendieron que una barrera no solo debe ser fuerte, sino también terapéutica. De esta leyenda, hemos reconstruido un fragmento del Sello que protege el universo.",
+                artefactos: [
+                    { id: 'aura-mielitae', subtitulo: 'El Sello Protector de la Colmena' }
+                ]
+            }
+        },
+        mutabilis: {
+            titulo: "Los Mutabilis",
+            glifo: "images/arquetipo-mutabilis.png", // Asegúrate de que el nombre de la imagen sea correcto
+            filosofia: {
+                titulo: "La Filosofía",
+                contenido: "La filosofía Mutabilis enseña que la vida no es un estado, sino un proceso de adaptación. No ven el trauma como un enemigo, sino como un catalizador, una oportunidad para metabolizar la experiencia y emerger más resilientes y transformados."
+            },
+            dualidad: {
+                titulo: "El Don y la Falla",
+                don: "<strong>Don:</strong> Forma Fluida - La capacidad de alterar su propia fisiología para prosperar.",
+                falla: "<strong>Falla:</strong> Memoria Dolorosa - La tendencia a retener el 'eco' del dolor, viviendo en un estado de inflamación crónica."
+            },
+            leccion: {
+                titulo: "La Lección Alquímica para el Ser Moderno",
+                contenido: "La saga de los Mutabilis es una guía para navegar las crisis de la vida. Nos enseña que la verdadera resiliencia no es la capacidad de resistir el cambio, sino de fluir con él. Es una invitación a ver nuestras propias cicatrices no como marcas de daño, sino como testimonios de nuestra increíble capacidad de renovación."
+            },
+            ritual: {
+                titulo: "Artefacto del Ritual de Renovación",
+                introduccion: "Del mito de la 'Piel de Roca', aprendieron que la verdadera adaptación es un ciclo de trauma, purificación y renovación. De esta leyenda, hemos reconstruido el elixir que guía a la piel a través de este proceso sagrado.",
+                artefactos: [
+                    { id: 'elixir-vitae', subtitulo: 'El Elixir de la Renovación' }
+                ]
+            }
         }
-        // Aquí podremos añadir los demás arquetipos en el futuro
     };
 
     const phoneNumber = '573196805286';
