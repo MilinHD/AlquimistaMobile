@@ -205,14 +205,43 @@ window.onload = function () {
     const menuOverlay = document.getElementById('menu-overlay');
     let swiper;
 
+    // ===================================================================
+    // FUNCIÓN DE EVENT LISTENERS (CORREGIDA PARA EL GLIFO)
+    // ===================================================================
     function setupEventListeners() {
-        menuBtn.addEventListener('click', () => {
+        // ANTES: const menuBtn = document.getElementById('menu-btn');
+        // AHORA:
+        const glifoBtn = document.getElementById('glifo-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const backBtn = document.getElementById('back-to-gallery');
+
+        // Listener para el nuevo Glifo
+        glifoBtn.addEventListener('click', () => {
             menuOverlay.classList.toggle('opacity-0');
             menuOverlay.classList.toggle('invisible');
-            menuOverlay.style.display = menuOverlay.classList.contains('invisible') ? 'none' : 'flex';
+
+            // Un pequeño truco para asegurar que la animación funcione bien
+            if (!menuOverlay.classList.contains('invisible')) {
+                menuOverlay.style.display = 'flex';
+            } else {
+                // Esperamos que la animación de opacidad termine antes de ocultarlo
+                setTimeout(() => {
+                    menuOverlay.style.display = 'none';
+                }, 400); // 400ms, coincide con la duración de la transición
+            }
         });
-        menuOverlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menuBtn.click()));
+
+        // Hacemos que los enlaces del menú lo cierren al hacer clic
+        menuOverlay.querySelectorAll('a').forEach(link => {
+            // ANTES: link.addEventListener('click', () => menuBtn.click());
+            // AHORA:
+            link.addEventListener('click', () => glifoBtn.click());
+        });
+
+        // El listener del botón "Volver a la galería" no cambia
         backBtn.addEventListener('click', showGallery);
+
+        // El listener del acordeón de productos no cambia
         initAccordion();
     }
 
