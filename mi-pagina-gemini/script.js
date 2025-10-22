@@ -6,16 +6,17 @@ window.onload = function () {
         once: true,
     });
 
+
     // ===================================================================
-    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL Y COMPLETA)
+    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL Y COMPLETA CON TODO EL LORE)
     // ===================================================================
     const products = [
         {
             id: 'panacea-summus',
             name: 'Panacea Summus',
-            subtitle: 'El Bálsamo de los Ecos Opuestos',
+            subtitle: 'El Bálsamo de los Ecos Opuestos', // Ya estaba actualizado
             price: 38000,
-            images: ['images/Panacea-Summus.jpg'],
+            images: ['images/Panacea-Summus.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -31,6 +32,7 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
+                    // Corregido data-arquetipo a chironai 
                     content: '<p>Este artefacto nace de la sabiduría de la Tribu Chironai, los sanadores empáticos de Anima Mundi.</p><button data-arquetipo="chironai" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -38,9 +40,9 @@ window.onload = function () {
         {
             id: 'petra-lorien',
             name: 'Petra Lorien',
-            subtitle: 'El Ritual del Origen Puro',
+            subtitle: 'Champu Ritual Solido Purificante', // Actualizado
             price: 38000,
-            images: ['images/Petra-Lorien.jpg'],
+            images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -63,9 +65,9 @@ window.onload = function () {
         {
             id: 'nox-lucens',
             name: 'Nox Lucens',
-            subtitle: 'El Ritual del Sello Flexible',
-            price: 34000,
-            images: ['images/Nox-Lucens.jpg'],
+            subtitle: 'Acondicionador Ritual Solido Estabilizador', // Actualizado
+            price: 34000, // Mantenemos tu precio actualizado
+            images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -88,9 +90,9 @@ window.onload = function () {
         {
             id: 'aura-mielitae',
             name: 'Aura Mielitae',
-            subtitle: 'El Sello Protector de la Colmena',
+            subtitle: 'El Sello Protector Labial', // Actualizado (removido 'de la Colmena')
             price: 26000,
-            images: ['images/Aura-Mielitae.jpg'],
+            images: ['images/Aura-Mielitae.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -102,10 +104,11 @@ window.onload = function () {
                 },
                 {
                     title: 'La Mirada Dual',
-                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> La Cera de Abejas y la Manteca de Karité forman una barrera oclusiva y emoliente que previene la pérdida de humedad. La Caléndula, con sus potentes activos antiinflamatorios, calma la irritación y acelera la reparación de fisuras.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> La Cera de Abejas (Feng La) crea un escudo que protege contra la invasión de "Viento-Frío". La Caléndula (Jin Zhan Ju) "aclara el Calor" (inflamación), mientras la base rica "nutre el Yin" de la piel.</p>'
+                    content: '<p><strong>La Lente de la Forma (Ciencia):</strong> La Cera de Abejas y la Manteca de Karité forman una barrera oclusiva y emoliente que previene la pérdida de humedad. La Caléndula, con sus potentes activos antiinflammatorios, calma la irritación y acelera la reparación de fisuras.</p><p class="mt-2"><strong>La Lente del Flujo (MTC):</strong> La Cera de Abejas (Feng La) crea un escudo que protege contra la invasión de "Viento-Frío". La Caléndula (Jin Zhan Ju) "aclara el Calor" (inflamación), mientras la base rica "nutre el Yin" de la piel.</p>'
                 },
                 {
                     title: 'La Entrada del Códice',
+                    // Corregido data-arquetipo a mellisonae 
                     content: '<p>Este artefacto nace de la sabiduría de la Conciencia Mellisonae, los tejedores del Velo Cósmico.</p><button data-arquetipo="mellisonae" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -113,9 +116,9 @@ window.onload = function () {
         {
             id: 'elixir-vitae',
             name: 'Elixir Vitae',
-            subtitle: 'El Elixir de la Renovación',
+            subtitle: 'El Elixir Restaurador', // Actualizado
             price: 60000,
-            images: ['images/Elixir-Vitae.jpg'],
+            images: ['images/Elixir-Vitae.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -131,6 +134,7 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
+                    // Corregido data-arquetipo a mutabilis 
                     content: '<p>Este artefacto nace de la sabiduría de la Tribu Mutabilis, los maestros de la adaptación y la resiliencia.</p><button data-arquetipo="mutabilis" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -138,9 +142,9 @@ window.onload = function () {
         {
             id: 'nectar-divinum',
             name: 'Nectar Divinum',
-            subtitle: 'El Rocío de la Vitalidad Sagrada',
-            price: 26000,
-            images: ['images/Nectar-Divinum.jpg'],
+            subtitle: 'El Elixir Nutritivo de la Raíz', // Actualizado (removido 'Rocío de la Vitalidad Sagrada')
+            price: 26000, // Mantenemos tu precio actualizado
+            images: ['images/Nectar-Divinum.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
                     title: 'La Promesa del Alquimista',
@@ -156,11 +160,13 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
+                    // Usamos 'arborian' como ID y cambiamos texto del botón 
                     content: '<p>Este artefacto es la reconstrucción del rocío sagrado que emana de la Vitalidad Arborian, la esencia misma del Axis Vitae.</p><button data-arquetipo="arborian" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Origen ]</button>'
                 }
             ]
         }
     ];
+// --- Asegúrate de que el resto del código JS (arquetipos, funciones, listeners) sigue después ---
     // ===================================================================
     // LORE DE LOS ARQUETIPOS (VERSIÓN COMPLETA CON 4 TRIBUS)
     // ===================================================================
@@ -312,14 +318,54 @@ window.onload = function () {
         initAccordion();
     }
 
+    // ===================================================================
+    // FUNCIÓN renderGallery (FINAL Y ALINEADA AL BLUEPRINT)
+    // ===================================================================
     function renderGallery() {
-        galleryView.innerHTML = '';
+        // Apuntamos al div interno del carrusel donde van las tarjetas
+        const galleryContainer = document.getElementById('formulaciones-gallery');
+        galleryContainer.innerHTML = ''; // Limpiamos antes de añadir
+
         products.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'product-card bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg cursor-pointer flex flex-col items-center';
-            card.innerHTML = `<img src="${product.images[0]}" alt="[Imagen de ${product.name}]" class="rounded-md mb-4 w-full h-auto aspect-square object-cover" loading="lazy"><h3 class="text-2xl text-center text-oro-viejo">${product.name}</h3><p class="text-center subtitle text-purpura-alquimista">${product.subtitle}</p>`;
-            card.addEventListener('click', () => showProductDetail(product.id));
-            galleryView.appendChild(card);
+            // 1. Creamos el div exterior (wrapper) que controla el tamaño y el snap
+            const cardWrapper = document.createElement('div');
+            // Usamos las clases de ancho y snap del blueprint
+            cardWrapper.className = 'flex-shrink-0 w-80 sm:w-96 snap-center';
+
+            // 2. Creamos el enlace que envuelve toda la tarjeta
+            const cardLink = document.createElement('a');
+            cardLink.href = `#formulaciones`; // Enlace temporal, JS maneja el clic
+            cardLink.className = 'block h-full product-card-link cursor-pointer'; // Clase para el listener
+            cardLink.dataset.productId = product.id; // Guardamos el ID
+
+            // 3. Creamos el contenido interno de la tarjeta (el div con fondo, borde, etc.)
+            cardLink.innerHTML = `
+            <div class="bg-pizarra-suave border border-oro-viejo/30 rounded-lg shadow-lg h-full flex flex-col overflow-hidden product-card transition-transform duration-300 ease-in-out hover:-translate-y-1"> 
+                <div class="h-64 w-full flex-shrink-0">
+                    <img src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover" loading="lazy">
+                </div>
+                <div class="p-6 text-center flex flex-col flex-grow">
+                    <h3 class="text-2xl text-luz-de-vela font-cinzel">${product.name}</h3>
+                    <p class="text-md text-oro-viejo mt-2">${product.subtitle}</p>
+                    <div class="mt-auto pt-4"> 
+                        </div>
+                </div>
+            </div>
+        `;
+
+            // Añadimos el enlace (con la tarjeta dentro) al wrapper
+            cardWrapper.appendChild(cardLink);
+            // Añadimos el wrapper al contenedor principal de la galería
+            galleryContainer.appendChild(cardWrapper);
+        });
+
+        // Añadimos el listener para los clics en las nuevas tarjetas (este listener ya lo tenías, lo mantenemos)
+        galleryContainer.querySelectorAll('.product-card-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = e.currentTarget.dataset.productId;
+                showProductDetail(productId);
+            });
         });
     }
 

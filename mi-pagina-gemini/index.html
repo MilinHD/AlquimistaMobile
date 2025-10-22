@@ -207,32 +207,45 @@
                 </div>
             </section>
 
-        <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen">
-            <header class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl">Artefactos Reconstruidos</h2>
-                <p class="subtitle text-lg text-oro-viejo mt-2">Maestría Artesanal</p>
-            </header>
-            <div id="formulaciones-gallery" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up"></div>
-            <div id="formulaciones-detail" class="hidden max-w-xl mx-auto">
-                <button id="back-to-gallery" class="btn btn-outline mb-8 text-sm !py-2 !px-4">
-                    &larr; Volver a la Galería
-                </button>
-                <div class="swiper-container mb-8 rounded-lg border border-purpura-alquimista">
-                    <div id="product-swiper-wrapper" class="swiper-wrapper"></div>
+            <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen overflow-hidden">
+                <header class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl text-oro-viejo font-cinzel">La Galería de Obras Alquímicas</h2>
+                    <p class="subtitle text-lg text-luz-de-vela mt-2 italic">
+                        Forjadas para tu Equilibrio
+                    </p>
+                </header>
 
-                    <div class="swiper-pagination"></div>
+                <div id="formulaciones-gallery-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-8 pt-2"
+                     data-aos="fade-up"
+                     data-aos-delay="100">
+                    <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
+
+                    <div id="formulaciones-gallery" class="flex gap-x-4 sm:gap-x-6">
+                    </div>
+
+                    <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
                 </div>
-                <div class="text-center">
-                    <h3 id="product-name" class="text-3xl"></h3>
-                    <p id="product-subtitle" class="subtitle text-lg text-oro-viejo"></p>
-                    <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
+
+                <div id="formulaciones-detail" class="hidden max-w-xl mx-auto mt-8">
+                    <button id="back-to-gallery" class="btn btn-outline mb-8 text-sm !py-2 !px-4">
+                        &larr; Volver a la Galería
+                    </button>
+                    <div class="swiper-container mb-8 rounded-lg border border-purpura-alquimista">
+                        <div id="product-swiper-wrapper" class="swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="text-center">
+                        <h3 id="product-name" class="text-3xl"></h3>
+                        <p id="product-subtitle" class="subtitle text-lg text-oro-viejo"></p>
+                        <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
+                    </div>
+                    <div id="product-accordion" class="my-8 space-y-2"></div>
+                    <div class="text-center my-8">
+                        <a id="whatsapp-cta" href="#" class="btn">[ Pedir o Consultar por WhatsApp ]</a>
+                    </div>
                 </div>
-                <div id="product-accordion" class="my-8 space-y-2"></div>
-                <div class="text-center my-8">
-                    <a id="whatsapp-cta" href="#" class="btn">[ Pedir o Consultar por WhatsApp ]</a>
-                </div>
-            </div>
-        </section>
+
+            </section>
 
         <section id="manifiesto" class="py-16 px-4 md:px-8">
             <div class="w-full" data-aos="fade-in" data-aos-duration="1000">
