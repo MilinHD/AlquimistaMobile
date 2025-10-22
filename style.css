@@ -1,0 +1,256 @@
+﻿:root {
+    --color-noche-alquimista: #1a1a1d;
+    --color-luz-de-vela: #f4f1ea;
+    --color-oro-viejo: #A88F64;
+    --color-purpura-alquimista: #5C4B6F;
+    --color-pizarra-suave: #2c2c31;
+}
+
+body {
+    background-color: var(--color-noche-alquimista);
+    color: var(--color-luz-de-vela);
+    font-family: 'EB Garamond', serif;
+    line-height: 1.7;
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+}
+
+h1, h2, .font-cinzel-decorative {
+    font-family: 'Cinzel Decorative', cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+h3, h4 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+}
+
+/* Pega aquí el resto de tus estilos... desde .subtitle hasta .font-cinzel */
+.subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+}
+
+.btn {
+    background-color: var(--color-oro-viejo);
+    color: var(--color-noche-alquimista);
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+    .btn:hover {
+        opacity: 0.9;
+        transform: scale(1.03);
+    }
+
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: scale(1);
+    }
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--color-oro-viejo);
+    color: var(--color-oro-viejo);
+}
+
+    .btn-outline:hover {
+        background-color: var(--color-oro-viejo);
+        color: var(--color-noche-alquimista);
+    }
+
+#menu-overlay {
+    backdrop-filter: blur(5px);
+    background-color: rgba(26, 26, 29, 0.8);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.accordion-item.active .icon-plus {
+    transform: rotate(45deg);
+}
+
+.icon-plus {
+    transition: transform 0.3s ease;
+}
+
+/* Animation delays for "El Velo" sequence */
+.fade-in {
+    animation: fadeInAnimation 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-delay-0 {
+    animation-delay: 0.5s;
+}
+/* Isotipo */
+.fade-in-delay-1 {
+    animation-delay: 1.3s;
+}
+/* Logotipo */
+.fade-in-delay-2 {
+    animation-delay: 2.1s;
+}
+/* Cita */
+.fade-in-delay-3 {
+    animation-delay: 2.9s;
+}
+/* Botón */
+
+#codice-result-container {
+    background: rgba(0,0,0,0.2);
+    border-left: 3px solid var(--color-purpura-alquimista);
+    transition: all 0.5s ease;
+    min-height: 50px;
+}
+
+.spinner {
+    border: 4px solid rgba(244, 241, 234, 0.3);
+    border-left-color: var(--color-oro-viejo);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+.input-alquimista {
+    background-color: transparent;
+    border: 1px solid var(--color-oro-viejo);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: var(--color-luz-de-vela);
+    width: 100%;
+}
+
+    .input-alquimista::placeholder {
+        color: var(--color-luz-de-vela);
+        opacity: 0.5;
+    }
+
+    .input-alquimista:focus {
+        outline: none;
+        box-shadow: 0 0 5px var(--color-oro-viejo);
+    }
+
+.font-cinzel {
+    font-family: 'Cinzel', serif;
+}
+/* Para ocultar la barra de scroll en el grimorio de Arquetipos */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+/* =================================================================== */
+/* Clases de Color Personalizadas */
+/* =================================================================== */
+
+/* Definición para la clase de texto color Oro Viejo */
+.text-oro-viejo {
+    color: var(--color-oro-viejo);
+}
+/* =================================================================== */
+/* Clases de Color Personalizadas para la Paleta del Alquimista */
+/* =================================================================== */
+
+/* --- Colores de Texto --- */
+.text-luz-de-vela {
+    color: var(--color-luz-de-vela);
+}
+
+.text-oro-viejo {
+    color: var(--color-oro-viejo);
+}
+
+.text-purpura-alquimista {
+    color: var(--color-purpura-alquimista);
+}
+
+/* --- Colores de Fondo --- */
+.bg-noche-alquimista {
+    background-color: var(--color-noche-alquimista);
+}
+
+.bg-pizarra-suave {
+    background-color: var(--color-pizarra-suave);
+}
+
+/* --- Colores de Borde --- */
+.border-oro-viejo {
+    border-color: var(--color-oro-viejo);
+}
+
+.border-purpura-alquimista {
+    border-color: var(--color-purpura-alquimista);
+}
+/* Animación para el Glifo Pulsante */
+@keyframes pulsate {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+#glifo-btn {
+    animation: pulsate 3s ease-in-out infinite;
+    /* --- AÑADIDO: El Aura Sutil --- */
+    /* Sombra exterior: 0 desplazamiento H, 0 V, 15px de desenfoque, 2px de expansión, color oro viejo con ~50% opacidad */
+    box-shadow: 0 0 15px 2px #A88F6480;
+    transition: box-shadow 0.3s ease; /* Transición suave para hover (opcional) */
+}
+
+    /* Opcional: Intensificar un poco el aura al pasar el ratón o enfocar */
+    #glifo-btn:hover,
+    #glifo-btn:focus {
+        box-shadow: 0 0 20px 4px #A88F64b3; /* Más desenfoque, más expansión, más opacidad */
+    }
