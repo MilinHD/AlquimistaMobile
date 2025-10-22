@@ -40,35 +40,41 @@
     </div>
 
     <main>
-        <section id="velo" class="h-screen w-screen flex flex-col justify-center items-center p-8 relative overflow-hidden">
+        <section id="velo" class="h-screen w-screen relative flex flex-col justify-between items-center overflow-hidden">
 
-            <div class="flex flex-col items-center gap-y-20 sm:gap-y-24">
-
-                <div class="relative z-20 flex flex-col items-center justify-center text-center">
-                    <div class="w-24 h-24 mb-4 fade-in fade-in-delay-0">
-                        <img src="images/IsotipoAlquimistablanco.png" alt="Isotipo de Alquimista">
-                    </div>
-                    <h1 class="text-4xl md:text-5xl text-luz-de-vela font-cinzel tracking-widest fade-in fade-in-delay-1">ALQUIMISTA</h1>
-                    <p class="text-lg md:text-xl text-luz-de-vela mt-4 fade-in fade-in-delay-2 font-normal tracking-normal">Sabiduría Natural. Precisión Científica.</p>
-                </div>
-
-                <div class="relative z-20 w-full flex flex-col sm:flex-row items-center justify-center gap-4 fade-in fade-in-delay-3">
-                    <a href="#codice" class="btn">[ Entrar al Taller ]</a>
-                    <a href="https://www.instagram.com/alquimistashop/" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex items-center gap-x-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
-                        Unirse al Círculo
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="absolute inset-0 bg-black z-0">
-                <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 z-0">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-20">
                     <source src="videos/velo-background.mp4" type="video/mp4">
-                    Tu navegador no soporta videos en background.
                 </video>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(26,26,29,1)] via-[rgba(26,26,29,0.7)] to-transparent z-10"></div>
+
+            <div class="absolute inset-0 z-10">
+                <img src="https://placehold.co/1080x1920/1a1a1d/A88F64?text=Obras+Alquimicas+Vertical"
+                     alt="Obras Alquímicas de AETHERIA"
+                     class="w-full h-full object-cover">
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[rgba(26,26,29,1)] via-[rgba(26,26,29,0.7)] to-transparent z-20"></div>
+
+            <div class="relative z-30 flex flex-col justify-between items-center h-full w-full max-w-md mx-auto px-6 pt-16 pb-12">
+
+                <div class="text-center fade-in fade-in-delay-0">
+                    <div class="w-20 h-20 mx-auto mb-3">
+                        <img src="images/IsotipoAlquimistablanco.png" alt="Isotipo de AETHERIA" class="w-full h-full object-contain">
+                    </div>
+                    <h1 class="text-4xl text-luz-de-vela font-cinzel tracking-widest">AETHERIA</h1>
+                    <p class="text-sm text-luz-de-vela/80 mt-1 tracking-wider" style="font-family: 'EB Garamond', serif;">
+                        Alquimia Ancestral & Ciencia
+                    </p>
+                </div>
+
+                <div class="w-full flex flex-col items-center gap-y-4 fade-in fade-in-delay-1">
+                    <a href="#formulaciones" class="btn w-full max-w-xs">[ Explorar Obras Alquímicas ]</a>
+                    <a href="#arquetipos" class="text-sm text-luz-de-vela/70 hover:text-oro-viejo transition-colors tracking-wide underline underline-offset-4">
+                        O sumergirse en el Códice
+                    </a>
+                </div>
+            </div>
 
         </section>
 
