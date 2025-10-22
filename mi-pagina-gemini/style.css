@@ -69,12 +69,43 @@ h3, h4 {
         color: var(--color-noche-alquimista);
     }
 
+/* =================================================================== */
+/* Estilos y Animación para el Menú Overlay Rediseñado */
+/* =================================================================== */
+
 #menu-overlay {
-    backdrop-filter: blur(5px);
-    background-color: rgba(26, 26, 29, 0.8);
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    backdrop-filter: blur(10px); /* Aumentamos el blur para más elegancia */
+    background-color: rgba(26, 26, 29, 0.9); /* Un poco más opaco */
+    /* Transición AHORA incluye transform */
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
 }
 
+    /* Estado inicial (oculto) */
+    #menu-overlay.opacity-0 {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    /* Estado visible */
+    #menu-overlay:not(.opacity-0) {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+/* Estilo para los separadores entre enlaces */
+.menu-separator {
+    display: block; /* Ocupa su propia línea */
+    text-align: center;
+    color: var(--color-oro-viejo);
+    opacity: 0.5;
+    margin-top: 0.75rem; /* Espacio después del enlace */
+    font-size: 1rem; /* Tamaño del punto o glifo */
+    line-height: 1;
+}
+
+/* Ocultamos el último separador si no lo quieres */
+.menu-item:last-child .menu-separator {
+    display: none;
+}
 .accordion-content {
     max-height: 0;
     overflow: hidden;

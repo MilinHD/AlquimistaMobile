@@ -289,18 +289,20 @@ window.onload = function () {
         const backBtn = document.getElementById('back-to-gallery');
 
         // Listener para el nuevo Glifo
+        // Listener para el nuevo Glifo (ACTUALIZADO para la animación de escala)
         glifoBtn.addEventListener('click', () => {
+            // Quitamos/añadimos la clase scale-95 junto con las de opacidad
             menuOverlay.classList.toggle('opacity-0');
+            menuOverlay.classList.toggle('scale-95');
             menuOverlay.classList.toggle('invisible');
 
-            // Un pequeño truco para asegurar que la animación funcione bien
             if (!menuOverlay.classList.contains('invisible')) {
                 menuOverlay.style.display = 'flex';
             } else {
-                // Esperamos que la animación de opacidad termine antes de ocultarlo
+                // Usamos la misma duración de la transición CSS
                 setTimeout(() => {
                     menuOverlay.style.display = 'none';
-                }, 400); // 400ms, coincide con la duración de la transición
+                }, 300); // 300ms
             }
         });
 

@@ -30,14 +30,42 @@
             </svg>
         </button>
     </header>
-    <div id="menu-overlay" class="fixed inset-0 z-40 flex-col items-center justify-center hidden opacity-0 invisible">
-        <h2 class="text-3xl text-luz-de-vela font-cinzel tracking-widest mb-12">AETHERIA</h2>
-        <nav class="flex flex-col text-center text-2xl font-cinzel">
-            <a href="#formulaciones" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">Ver las Obras</a>
-            <a href="#codice" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">El Códice</a>
-            <a href="#arquetipos" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">Los Arquetipos</a>
-            <a href="#manifiesto" class="menu-item py-4 text-luz-de-vela hover:text-oro-viejo">Manifiesto</a>
-        </nav>
+    <div id="menu-overlay" class="fixed inset-0 z-40 flex flex-col items-center justify-center p-8 bg-noche-alquimista/90 backdrop-blur-md opacity-0 invisible transform scale-95">
+
+        <div class="flex flex-col items-center h-full max-h-[80vh] w-full max-w-xs">
+
+            <div class="text-center mb-10 flex-shrink-0">
+                <div class="w-16 h-16 mx-auto mb-2">
+                    <img src="images/IsotipoAlquimistablanco.png" alt="Isotipo de AETHERIA" class="w-full h-full object-contain text-oro-viejo">
+                </div>
+                <h2 class="text-3xl text-luz-de-vela font-cinzel tracking-widest">AETHERIA</h2>
+            </div>
+
+            <nav class="flex flex-col text-center text-2xl font-cinzel flex-grow overflow-y-auto scrollbar-hide py-4">
+                <a href="#formulaciones" class="menu-item py-3 text-luz-de-vela hover:text-oro-viejo relative">
+                    Ver las Obras
+                    <span class="menu-separator">·</span>
+                </a>
+                <a href="#codice" class="menu-item py-3 text-luz-de-vela hover:text-oro-viejo relative">
+                    El Códice
+                    <span class="menu-separator">·</span>
+                </a>
+                <a href="#arquetipos" class="menu-item py-3 text-luz-de-vela hover:text-oro-viejo relative">
+                    Los Arquetipos
+                    <span class="menu-separator">·</span>
+                </a>
+                <a href="#manifiesto" class="menu-item py-3 text-luz-de-vela hover:text-oro-viejo relative">
+                    Manifiesto
+                </a>
+            </nav>
+
+            <div class="mt-10 pt-6 border-t border-oro-viejo/30 text-center flex-shrink-0">
+                <a href="https://www.instagram.com/alquimistashop/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-x-2 text-luz-de-vela hover:text-oro-viejo transition-colors text-lg font-cinzel">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+                    Unirse al Círculo
+                </a>
+            </div>
+        </div>
     </div>
 
     <main>
