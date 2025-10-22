@@ -243,4 +243,14 @@ h3, h4 {
 
 #glifo-btn {
     animation: pulsate 3s ease-in-out infinite;
+    /* --- AÑADIDO: El Aura Sutil --- */
+    /* Sombra exterior: 0 desplazamiento H, 0 V, 15px de desenfoque, 2px de expansión, color oro viejo con ~50% opacidad */
+    box-shadow: 0 0 15px 2px #A88F6480;
+    transition: box-shadow 0.3s ease; /* Transición suave para hover (opcional) */
 }
+
+    /* Opcional: Intensificar un poco el aura al pasar el ratón o enfocar */
+    #glifo-btn:hover,
+    #glifo-btn:focus {
+        box-shadow: 0 0 20px 4px #A88F64b3; /* Más desenfoque, más expansión, más opacidad */
+    }
