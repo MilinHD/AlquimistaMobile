@@ -40,25 +40,22 @@
     </div>
 
     <main>
-        <section id="velo" class="h-screen w-screen relative flex flex-col justify-between items-center overflow-hidden">
-
+        <section id="velo" class="min-h-screen w-screen relative flex flex-col justify-center items-center p-6 overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-20">
                     <source src="videos/velo-background.mp4" type="video/mp4">
                 </video>
             </div>
-
             <div class="absolute inset-0 z-10">
                 <img src="https://placehold.co/1080x1920/1a1a1d/A88F64?text=Obras+Alquimicas+Vertical"
                      alt="Obras Alquímicas de AETHERIA"
                      class="w-full h-full object-cover">
             </div>
-
             <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[rgba(26,26,29,1)] via-[rgba(26,26,29,0.7)] to-transparent z-20"></div>
 
-            <div class="relative z-30 flex flex-col justify-between items-center h-full w-full max-w-md mx-auto px-6 pt-16 pb-12">
+            <div class="relative z-30 flex flex-col justify-center items-center h-full w-full max-w-md mx-auto px-6 py-12 gap-y-8">
 
-                <div class="text-center fade-in fade-in-delay-0">
+                <div class="text-center fade-in fade-in-delay-0 flex-shrink-0">
                     <div class="w-20 h-20 mx-auto mb-3">
                         <img src="images/IsotipoAlquimistablanco.png" alt="Isotipo de AETHERIA" class="w-full h-full object-contain">
                     </div>
@@ -68,8 +65,10 @@
                     </p>
                 </div>
 
-                <div class="w-full flex flex-col items-center gap-y-4 fade-in fade-in-delay-1">
-                    <a href="#formulaciones" class="btn w-full max-w-xs">[ Explorar Obras Alquímicas ]</a>
+                <div class="flex-grow"></div>
+
+                <div class="w-full flex flex-col items-center gap-y-4 fade-in fade-in-delay-1 flex-shrink-0">
+                    <a href="#formulaciones" class="btn w-full max-w-xs">[ Ver las Obras ]</a>
                     <a href="#arquetipos" class="text-sm text-luz-de-vela/70 hover:text-oro-viejo transition-colors tracking-wide underline underline-offset-4">
                         O sumergirse en el Códice
                     </a>
