@@ -79,7 +79,45 @@
 
         </section>
 
+        <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen overflow-hidden">
+            <header class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl text-oro-viejo font-cinzel">La Galería de Obras Alquímicas</h2>
+                <p class="subtitle text-lg text-luz-de-vela mt-2 italic">
+                    Forjadas para tu Equilibrio
+                </p>
+            </header>
 
+            <div id="formulaciones-gallery-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-8 pt-2"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+                <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
+
+                <div id="formulaciones-gallery" class="flex gap-x-4 sm:gap-x-6">
+                </div>
+
+                <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
+            </div>
+
+            <div id="formulaciones-detail" class="hidden max-w-xl mx-auto mt-8">
+                <button id="back-to-gallery" class="btn btn-outline mb-8 text-sm !py-2 !px-4">
+                    &larr; Volver a la Galería
+                </button>
+                <div class="swiper-container mb-8 rounded-lg border border-purpura-alquimista">
+                    <div id="product-swiper-wrapper" class="swiper-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="text-center">
+                    <h3 id="product-name" class="text-3xl"></h3>
+                    <p id="product-subtitle" class="subtitle text-lg text-oro-viejo"></p>
+                    <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
+                </div>
+                <div id="product-accordion" class="my-8 space-y-2"></div>
+                <div class="text-center my-8">
+                    <a id="whatsapp-cta" href="#" class="btn">[ Pedir o Consultar por WhatsApp ]</a>
+                </div>
+            </div>
+
+        </section>
         <section id="codice" class="py-16 px-4 md:px-8">
 
             <header class="text-center mb-12" data-aos="fade-up">
@@ -133,119 +171,81 @@
             </div>
         </section>
 
-            <section id="arquetipos" class="py-16 overflow-hidden relative">
+        <section id="arquetipos" class="py-16 overflow-hidden relative">
 
-                <header class="text-center mb-12 px-4" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl">Los Arquetipos</h2>
-                    <p class="subtitle text-lg text-oro-viejo mt-2">Las Sabidurías Primordiales</p>
-                </header>
+            <header class="text-center mb-12 px-4" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl">Los Arquetipos</h2>
+                <p class="subtitle text-lg text-oro-viejo mt-2">Las Sabidurías Primordiales</p>
+            </header>
 
-                <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-8 pt-2"
-                     data-aos="fade-up"
-                     data-aos-delay="100">
-                    <div class="flex-shrink-0 w-16 sm:w-32"></div>
+            <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-8 pt-2"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+                <div class="flex-shrink-0 w-16 sm:w-32"></div>
 
-                    <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
-                        <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
-                            <div class="w-48 h-48 mb-4">
-                                <img src="images/glifo-lithosylvan.png" alt="Glifo de la Tribu Lithosylvan" class="w-full h-full object-contain">
-                            </div>
-                            <h3 class="text-2xl text-oro-viejo font-cinzel">Los Lithosylvan</h3>
-                            <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría de la Estructura</p>
-                            <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
-                                Nacidos de la piedra, su Don es la Fuerza Ancestral (Folium Firmus). Pero su Falla, la Rigidez de la Raíz (Radix Rigidus), amenaza con petrificarlos. Su saga es la búsqueda de la Resiliencia Flexible.
-                            </p>
-                            <button data-arquetipo="lithosylvan" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
+                <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
+                    <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
+                        <div class="w-48 h-48 mb-4">
+                            <img src="images/glifo-lithosylvan.png" alt="Glifo de la Tribu Lithosylvan" class="w-full h-full object-contain">
                         </div>
-                    </div>
-
-                    <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
-                        <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
-                            <img src="images/arquetipo-chironai.png" alt="Símbolo de la Tribu Chironai" class="rounded-md mb-4 w-full h-48 object-contain">
-                            <h3 class="text-2xl text-oro-viejo font-cinzel">Los Chironai</h3>
-                            <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría del Eco Equilibrado</p>
-                            <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
-                                Sanadores empáticos nacidos del agua, su Don es sentir el desequilibrio en otros (Echo Sensus). Pero su Falla, el Cor Compassionis, los arriesga a absorber el dolor que buscan sanar. Su saga es la búsqueda del equilibrio.
-                            </p>
-                            <button data-arquetipo="chironai" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
-                        </div>
-                    </div>
-
-                    <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
-                        <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
-                            <img src="images/arquetipo-mellisonae.png" alt="Símbolo de la Conciencia Mellisonae" class="rounded-md mb-4 w-full h-48 object-contain">
-                            <h3 class="text-2xl text-oro-viejo font-cinzel">La Conciencia Mellisonae</h3>
-                            <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría de la Membrana Sagrada</p>
-                            <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
-                                Una mente-colmena primordial, los Mellisonae son los guardianes del Velo. Su Don es tejer el Sello de la Unidad (Sigillum Unitas), pero su Falla es el miedo al vacío (Horror Vacui), que los tienta al aislamiento.
-                            </p>
-                            <button data-arquetipo="mellisonae" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
-                        </div>
-                    </div>
-
-                    <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
-                        <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
-                            <img src="images/arquetipo-mutabilis.png" alt="Símbolo de la Tribu Mutabilis" class="rounded-md mb-4 w-full h-48 object-contain">
-                            <h3 class="text-2xl text-oro-viejo font-cinzel">Los Mutabilis</h3>
-                            <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría del Cambio Constante</p>
-                            <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
-                                Nómadas y metamorfos, su Don es la Adaptabilidad Radical (Forma Fluida). Pero su Falla, la Memoria Dolorosa, puede atraparlos en el eco de un trauma pasado. Su saga es la búsqueda de la renovación consciente.
-                            </p>
-                            <button data-arquetipo="mutabilis" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
-                        </div>
-                    </div>
-
-                    <div class="flex-shrink-0 w-16 sm:w-32"></div>
-                </div>
-
-                <div class="hidden md:flex absolute top-1/2 right-8 z-20 items-center justify-center pointer-events-none">
-                    <div class="text-oro-viejo/50 animate-pulse-horizontal">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                </div>
-            </section>
-
-            <section id="formulaciones" class="py-16 px-4 md:px-8 bg-black bg-opacity-20 min-h-screen overflow-hidden">
-                <header class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl text-oro-viejo font-cinzel">La Galería de Obras Alquímicas</h2>
-                    <p class="subtitle text-lg text-luz-de-vela mt-2 italic">
-                        Forjadas para tu Equilibrio
-                    </p>
-                </header>
-
-                <div id="formulaciones-gallery-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-8 pt-2"
-                     data-aos="fade-up"
-                     data-aos-delay="100">
-                    <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
-
-                    <div id="formulaciones-gallery" class="flex gap-x-4 sm:gap-x-6">
-                    </div>
-
-                    <div class="flex-shrink-0 w-4 sm:w-8 md:w-16"></div>
-                </div>
-
-                <div id="formulaciones-detail" class="hidden max-w-xl mx-auto mt-8">
-                    <button id="back-to-gallery" class="btn btn-outline mb-8 text-sm !py-2 !px-4">
-                        &larr; Volver a la Galería
-                    </button>
-                    <div class="swiper-container mb-8 rounded-lg border border-purpura-alquimista">
-                        <div id="product-swiper-wrapper" class="swiper-wrapper"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <div class="text-center">
-                        <h3 id="product-name" class="text-3xl"></h3>
-                        <p id="product-subtitle" class="subtitle text-lg text-oro-viejo"></p>
-                        <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
-                    </div>
-                    <div id="product-accordion" class="my-8 space-y-2"></div>
-                    <div class="text-center my-8">
-                        <a id="whatsapp-cta" href="#" class="btn">[ Pedir o Consultar por WhatsApp ]</a>
+                        <h3 class="text-2xl text-oro-viejo font-cinzel">Los Lithosylvan</h3>
+                        <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría de la Estructura</p>
+                        <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
+                            Nacidos de la piedra, su Don es la Fuerza Ancestral (Folium Firmus). Pero su Falla, la Rigidez de la Raíz (Radix Rigidus), amenaza con petrificarlos. Su saga es la búsqueda de la Resiliencia Flexible.
+                        </p>
+                        <button data-arquetipo="lithosylvan" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
                     </div>
                 </div>
 
-            </section>
+                <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
+                    <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
+                        <img src="images/arquetipo-chironai.png" alt="Símbolo de la Tribu Chironai" class="rounded-md mb-4 w-full h-48 object-contain">
+                        <h3 class="text-2xl text-oro-viejo font-cinzel">Los Chironai</h3>
+                        <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría del Eco Equilibrado</p>
+                        <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
+                            Sanadores empáticos nacidos del agua, su Don es sentir el desequilibrio en otros (Echo Sensus). Pero su Falla, el Cor Compassionis, los arriesga a absorber el dolor que buscan sanar. Su saga es la búsqueda del equilibrio.
+                        </p>
+                        <button data-arquetipo="chironai" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
+                    <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
+                        <img src="images/arquetipo-mellisonae.png" alt="Símbolo de la Conciencia Mellisonae" class="rounded-md mb-4 w-full h-48 object-contain">
+                        <h3 class="text-2xl text-oro-viejo font-cinzel">La Conciencia Mellisonae</h3>
+                        <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría de la Membrana Sagrada</p>
+                        <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
+                            Una mente-colmena primordial, los Mellisonae son los guardianes del Velo. Su Don es tejer el Sello de la Unidad (Sigillum Unitas), pero su Falla es el miedo al vacío (Horror Vacui), que los tienta al aislamiento.
+                        </p>
+                        <button data-arquetipo="mellisonae" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-80 sm:w-96 snap-center mx-4">
+                    <div class="bg-pizarra-suave border border-oro-viejo rounded-lg p-6 shadow-lg h-full flex flex-col items-center text-center product-card">
+                        <img src="images/arquetipo-mutabilis.png" alt="Símbolo de la Tribu Mutabilis" class="rounded-md mb-4 w-full h-48 object-contain">
+                        <h3 class="text-2xl text-oro-viejo font-cinzel">Los Mutabilis</h3>
+                        <p class="subtitle text-purpura-alquimista mb-4">La Sabiduría del Cambio Constante</p>
+                        <p class="text-luz-de-vela/80 text-sm mb-6 flex-grow">
+                            Nómadas y metamorfos, su Don es la Adaptabilidad Radical (Forma Fluida). Pero su Falla, la Memoria Dolorosa, puede atraparlos en el eco de un trauma pasado. Su saga es la búsqueda de la renovación consciente.
+                        </p>
+                        <button data-arquetipo="mutabilis" class="btn btn-outline mt-auto open-grimorio-btn">[ Descubrir la Saga ]</button>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-16 sm:w-32"></div>
+            </div>
+
+            <div class="hidden md:flex absolute top-1/2 right-8 z-20 items-center justify-center pointer-events-none">
+                <div class="text-oro-viejo/50 animate-pulse-horizontal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+
 
         <section id="manifiesto" class="py-16 px-4 md:px-8">
             <div class="w-full" data-aos="fade-in" data-aos-duration="1000">
