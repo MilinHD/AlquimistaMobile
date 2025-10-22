@@ -40,7 +40,7 @@ window.onload = function () {
         {
             id: 'petra-lorien',
             name: 'Petra Lorien',
-            subtitle: 'Champu Ritual Solido Purificante', // Actualizado
+            subtitle: 'La Runa Purificadora', // Actualizado
             price: 38000,
             images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
@@ -50,7 +50,7 @@ window.onload = function () {
                 },
                 {
                     title: 'El Ritual',
-                    content: '<p>Humedece la pastilla y frótala suavemente en tus manos para crear una espuma rica y cremosa. Masajea la espuma sobre el cuero cabelludo con intención, sintiendo cómo purificas el origen. Aclara con abundante agua.</p>'
+                    content: '<p>Humedece la pastilla y frótala suavemente en tus manos o contra el cuero cabelludo una primera vez para retirar el exceso de cebo luego aclara con agua, repite el primer paso para crear una espuma rica y cremosa. Masajea la espuma sobre el cuero cabelludo con intención, sintiendo cómo purificas el origen. Aclara con abundante agua.</p>'
                 },
                 {
                     title: 'La Mirada Dual',
@@ -65,7 +65,7 @@ window.onload = function () {
         {
             id: 'nox-lucens',
             name: 'Nox Lucens',
-            subtitle: 'Acondicionador Ritual Solido Estabilizador', // Actualizado
+            subtitle: 'El Sello Acondicionador Estabilizante', // Actualizado
             price: 34000, // Mantenemos tu precio actualizado
             images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
