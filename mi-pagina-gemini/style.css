@@ -70,39 +70,49 @@ h3, h4 {
     }
 
 /* =================================================================== */
-/* Estilos y Animación para el Menú Overlay Rediseñado */
+/* Estilos y Animación para el Menú Overlay (Versión con .is-open) */
 /* =================================================================== */
 
 #menu-overlay {
-    backdrop-filter: blur(10px); /* Aumentamos el blur para más elegancia */
-    background-color: rgba(26, 26, 29, 0.9); /* Un poco más opaco */
-    /* Transición AHORA incluye transform */
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, transform 0.3s ease-out;
+    backdrop-filter: blur(10px);
+    background-color: rgba(26, 26, 29, 0.9);
+    /* Estado inicial (oculto) */
+    opacity: 0;
+    transform: scale(0.95);
+    visibility: hidden; /* Usamos visibility en lugar de display:none */
+    /* Transición AHORA incluye visibility */
+    transition: opacity 0.3s ease-out, visibility 0s linear 0.3s, transform 0.3s ease-out;
+    /* El truco: visibility cambia instantáneamente DESPUÉS de que la opacidad termine */
+    display: flex; /* Lo mantenemos siempre flex para evitar problemas de layout */
+    position: fixed; /* Aseguramos que esté fijo */
+    inset: 0; /* Aseguramos que ocupe toda la pantalla */
+    z-index: 40; /* Aseguramos que esté por encima */
+    flex-direction: column; /* Aseguramos la dirección */
+    align-items: center; /* Aseguramos la alineación */
+    justify-content: center; /* Aseguramos la alineación */
+    padding: 2rem; /* Re-añadimos el padding que estaba en el HTML */
 }
 
-    /* Estado inicial (oculto) */
-    #menu-overlay.opacity-0 {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    /* Estado visible */
-    #menu-overlay:not(.opacity-0) {
+    /* Estado visible (cuando tiene la clase .is-open) */
+    #menu-overlay.is-open {
         opacity: 1;
         transform: scale(1);
+        visibility: visible;
+        transition: opacity 0.3s ease-out, visibility 0s linear 0s, transform 0.3s ease-out;
+        /* Al abrirse, visibility cambia instantáneamente */
     }
 
-/* Estilo para los separadores entre enlaces */
+/* Estilo para los separadores (sin cambios) */
 .menu-separator {
-    display: block; /* Ocupa su propia línea */
+    display: block;
     text-align: center;
     color: var(--color-oro-viejo);
     opacity: 0.5;
-    margin-top: 0.75rem; /* Espacio después del enlace */
-    font-size: 1rem; /* Tamaño del punto o glifo */
+    margin-top: 0.75rem;
+    font-size: 1rem;
     line-height: 1;
 }
 
-/* Ocultamos el último separador si no lo quieres */
 .menu-item:last-child .menu-separator {
     display: none;
 }

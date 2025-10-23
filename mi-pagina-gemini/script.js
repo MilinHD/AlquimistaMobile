@@ -288,22 +288,9 @@ window.onload = function () {
         const menuOverlay = document.getElementById('menu-overlay');
         const backBtn = document.getElementById('back-to-gallery');
 
-        // Listener para el nuevo Glifo
-        // Listener para el nuevo Glifo (ACTUALIZADO para la animación de escala)
+        // Listener para el nuevo Glifo (SIMPLIFICADO con clase .is-open)
         glifoBtn.addEventListener('click', () => {
-            // Quitamos/añadimos la clase scale-95 junto con las de opacidad
-            menuOverlay.classList.toggle('opacity-0');
-            menuOverlay.classList.toggle('scale-95');
-            menuOverlay.classList.toggle('invisible');
-
-            if (!menuOverlay.classList.contains('invisible')) {
-                menuOverlay.style.display = 'flex';
-            } else {
-                // Usamos la misma duración de la transición CSS
-                setTimeout(() => {
-                    menuOverlay.style.display = 'none';
-                }, 300); // 300ms
-            }
+            menuOverlay.classList.toggle('is-open');
         });
 
         // Hacemos que los enlaces del menú lo cierren al hacer clic
