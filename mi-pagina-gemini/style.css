@@ -296,8 +296,9 @@ h3, h4 {
         /* Aumentamos el desenfoque y la opacidad del brillo */
         filter: drop-shadow(0 0 12px #A88F64b3); /* 12px blur, color oro viejo ~70% opacidad */
     }
+
 /* =================================================================== */
-/* Aura de AETHERIA (Partículas de Fondo) */
+/* Aura de AETHERIA (Partículas de Fondo) - CORREGIDO */
 /* =================================================================== */
 
 /* 1. El Contenedor de las partículas y la textura de fondo */
@@ -309,19 +310,19 @@ h3, h4 {
     height: 100%;
     pointer-events: none; /* Hace que sea "invisible" a los clics */
     z-index: 0; /* Lo pone en el fondo de todo */
-    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png'); /* <- MOVEMOS LA TEXTURA AQUÍ */
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
     overflow: hidden;
 }
 
-/* 2. Aseguramos que el contenido principal flote por encima del aura */
+/* 2. Aseguramos que el contenido principal (QUE NO ES FIJO) flote por encima */
+/* Quitamos header y menu-overlay de esta regla, ya que son 'fixed' y tienen su propio z-index */
 main,
-header,
-footer,
-#menu-overlay {
+footer {
     position: relative;
-    z-index: 10; /* Cualquier z-index mayor que 0 funciona */
+    z-index: 10;
 }
-/* (El glifo y el menú ya tienen z-index altos (40, 50), así que están perfectos) */
+/* (header y menu-overlay ya tienen z-40 y z-50, así que están por encima y no necesitan esta regla) */
+
 
 /* 3. Definición de la partícula */
 .particle {
@@ -432,3 +433,5 @@ footer,
     animation-duration: 21s;
     animation-delay: 6s;
 }
+
+/* IMPORTANTE: No hay ninguna llave '}' extra después de esta línea */
