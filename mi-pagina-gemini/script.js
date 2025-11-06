@@ -19,7 +19,7 @@ window.onload = function () {
             images: ['images/Panacea-Summus.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa de Aetheria',
                     content: '<p>Este no es un ungüento; es un ritual de liberación. Una fórmula que no ataca el dolor, sino que lo desordena con un eco de frío y calor, permitiendo que tu cuerpo recuerde su propia armonía y suelte el nudo de la tensión.</p>'
                 },
                 {
@@ -45,7 +45,7 @@ window.onload = function () {
             images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa de Aetheria',
                     content: '<p>Un cabello sano no es el que se cubre; es el que nace de una tierra fértil. Este shampoo sólido purifica profundamente el cuero cabelludo, eliminando el exceso que ahoga la raíz para que la verdadera vitalidad pueda despertar.</p>'
                 },
                 {
@@ -70,7 +70,7 @@ window.onload = function () {
             images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa del Aetheria',
                     content: '<p>Si Petra Lorien purifica el origen, Nox Lucens protege la manifestación. Este acondicionador no enmascara el daño; sella la fibra capilar, devolviéndole la flexibilidad, la nutrición y un brillo que parece nacer de la luna.</p>'
                 },
                 {
@@ -95,7 +95,7 @@ window.onload = function () {
             images: ['images/Aura-Mielitae.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa del Aetheria',
                     content: '<p>Tus labios son el umbral entre tu mundo interior y el exterior. Este bálsamo no es una simple capa de brillo; es un sello sagrado. Inspirado en la alquimia de la colmena, crea un velo protector que calma, repara y defiende la delicada piel de los labios, honrando el portal de tu aliento y tu palabra.</p>'
                 },
                 {
@@ -121,7 +121,7 @@ window.onload = function () {
             images: ['images/Elixir-Vitae.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa del Aetheria',
                     content: '<p>El afeitado es un ritual de fuego y acero, una agresión necesaria. Este elixir es la alquimia que transmuta ese trauma en un acto de renovación. No solo calma el ardor; guía a la piel a través de un ciclo de purificación y restauración para que emerja más fuerte y resiliente.</p>'
                 },
                 {
@@ -147,7 +147,7 @@ window.onload = function () {
             images: ['images/Nectar-Divinum.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
-                    title: 'La Promesa del Alquimista',
+                    title: 'La Promesa del Aetheria',
                     content: '<p>La verdadera vitalidad de tu cabello no se encuentra en la hebra, sino en la conexión con su origen. Este sérum no es un aceite para dar brillo superficial; es un tónico para la Esencia (Jing), diseñado para nutrir el cuero cabelludo y reconectar la raíz con su fuente de poder primordial.</p>'
                 },
                 {
@@ -375,7 +375,7 @@ window.onload = function () {
         if (swiper) swiper.destroy(true, true);
         swiper = new Swiper('.swiper-container', { loop: true, pagination: { el: '.swiper-pagination', clickable: true }, autoplay: { delay: 4000, disableOnInteraction: false } });
         const whatsappBtn = document.getElementById('whatsapp-cta');
-        whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Hola Alquimista, quisiera consultar sobre el producto: ${product.name}.`)}`;
+        whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Hola Aetheria, quisiera consultar sobre el producto: ${product.name}.`)}`;
         galleryView.classList.add('hidden');
         detailView.classList.remove('hidden');
         window.scrollTo({ top: detailView.offsetTop - 100, behavior: 'smooth' });
@@ -489,8 +489,8 @@ function showGallery() {
                 <div class="text-oro-viejo text-2xl tracking-widest my-6 text-center">. . .</div>
                 <p class="subtitle text-center text-luz-de-vela/80 text-sm">
                     Si esta sabiduría resuena contigo y buscas una guía más profunda, 
-                    <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Alquimista, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
-                        el Alquimista te escucha.
+                    <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Aetheria, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
+                        Aetheria te escucha.
                     </a>
                 </p>
             </div> `;
@@ -508,7 +508,7 @@ function showGallery() {
     // Manifiesto WhatsApp CTA
     const manifiestoWhatsAppBtn = document.getElementById('whatsapp-manifiesto-cta');
     if (manifiestoWhatsAppBtn) {
-        manifiestoWhatsAppBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Alquimista, me gustaría iniciar una conversación.')}`;
+        manifiestoWhatsAppBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Aetheria, me gustaría iniciar una conversación.')}`;
     }
 
     // Initialize App
