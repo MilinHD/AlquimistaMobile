@@ -11,7 +11,7 @@ body {
     color: var(--color-luz-de-vela);
     font-family: 'EB Garamond', serif;
     line-height: 1.7;
-    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    
 }
 
 h1, h2, .font-cinzel-decorative {
@@ -296,3 +296,139 @@ h3, h4 {
         /* Aumentamos el desenfoque y la opacidad del brillo */
         filter: drop-shadow(0 0 12px #A88F64b3); /* 12px blur, color oro viejo ~70% opacidad */
     }
+/* =================================================================== */
+/* Aura de AETHERIA (Partículas de Fondo) */
+/* =================================================================== */
+
+/* 1. El Contenedor de las partículas y la textura de fondo */
+.aether-aura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Hace que sea "invisible" a los clics */
+    z-index: 0; /* Lo pone en el fondo de todo */
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png'); /* <- MOVEMOS LA TEXTURA AQUÍ */
+    overflow: hidden;
+}
+
+/* 2. Aseguramos que el contenido principal flote por encima del aura */
+main,
+header,
+footer,
+#menu-overlay {
+    position: relative;
+    z-index: 10; /* Cualquier z-index mayor que 0 funciona */
+}
+/* (El glifo y el menú ya tienen z-index altos (40, 50), así que están perfectos) */
+
+/* 3. Definición de la partícula */
+.particle {
+    position: absolute;
+    bottom: -50px; /* Empezar fuera de la pantalla */
+    left: 0; /* Se posicionará con 'left' aleatorio */
+    background: var(--color-oro-viejo);
+    border-radius: 50%;
+    opacity: 0;
+    /* Animación: nombre, duración, tipo, bucle */
+    animation: float-up linear infinite;
+}
+
+/* 4. La animación de flotar */
+@keyframes float-up {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 0.6; /* Opacidad media */
+    }
+
+    100% {
+        transform: translateY(-110vh); /* Subir hasta desaparecer por arriba */
+        opacity: 0;
+    }
+}
+
+/* 5. Damos a cada partícula un tamaño, posición y delay "aleatorio" */
+.particle:nth-child(1) {
+    width: 2px;
+    height: 2px;
+    left: 10%;
+    animation-duration: 25s;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    width: 1px;
+    height: 1px;
+    left: 20%;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+.particle:nth-child(3) {
+    width: 3px;
+    height: 3px;
+    left: 30%;
+    animation-duration: 20s;
+    animation-delay: 8s;
+}
+
+.particle:nth-child(4) {
+    width: 1px;
+    height: 1px;
+    left: 40%;
+    animation-duration: 35s;
+    animation-delay: 10s;
+}
+
+.particle:nth-child(5) {
+    width: 2px;
+    height: 2px;
+    left: 50%;
+    animation-duration: 22s;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(6) {
+    width: 3px;
+    height: 3px;
+    left: 60%;
+    animation-duration: 28s;
+    animation-delay: 15s;
+}
+
+.particle:nth-child(7) {
+    width: 1px;
+    height: 1px;
+    left: 70%;
+    animation-duration: 32s;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(8) {
+    width: 2px;
+    height: 2px;
+    left: 80%;
+    animation-duration: 24s;
+    animation-delay: 20s;
+}
+
+.particle:nth-child(9) {
+    width: 1px;
+    height: 1px;
+    left: 90%;
+    animation-duration: 27s;
+    animation-delay: 12s;
+}
+
+.particle:nth-child(10) {
+    width: 3px;
+    height: 3px;
+    left: 95%;
+    animation-duration: 21s;
+    animation-delay: 6s;
+}
