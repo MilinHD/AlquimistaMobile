@@ -30,7 +30,7 @@ exports.handler = async function (event, context) {
 
         // LA LÍNEA FINAL Y CORRECTA CON EL NOMBRE DE TU MODELO
         // La línea final, correcta y compatible
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-live:generateContent?key=${API_KEY}`;
         
         const payload = {
             contents: [{ role: "user", parts: [{ text: prompt }] }],
