@@ -15,7 +15,7 @@ window.onload = function () {
             id: 'panacea-summus',
             name: 'Panacea Summus',
             subtitle: 'El Bálsamo de los Ecos Opuestos', // Ya estaba actualizado
-            price: 38000,
+            price: 50000,
             images: ['images/Panacea-Summus.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
@@ -41,7 +41,7 @@ window.onload = function () {
             id: 'petra-lorien',
             name: 'Petra Lorien',
             subtitle: 'La Runa Purificadora', // Actualizado
-            price: 38000,
+            price: 45000,
             images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
@@ -66,7 +66,7 @@ window.onload = function () {
             id: 'nox-lucens',
             name: 'Nox Lucens',
             subtitle: 'El Sello Acondicionador Estabilizante', // Actualizado
-            price: 34000, // Mantenemos tu precio actualizado
+            price: 40000, // Mantenemos tu precio actualizado
             images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
             accordion: [
                 {
