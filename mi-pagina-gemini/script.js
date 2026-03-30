@@ -17,6 +17,7 @@ window.onload = function () {
             subtitle: 'El Bálsamo de los Ecos Opuestos', // Ya estaba actualizado
             price: 50000,
             images: ['images/Panacea-Summus.jpg'], // Mantenemos tu nombre de imagen
+            status: 'disponible', // Producto listo
             accordion: [
                 {
                     title: 'La Promesa de Aetheria',
@@ -43,6 +44,7 @@ window.onload = function () {
             subtitle: 'La Runa Purificadora', // Actualizado
             price: 45000,
             images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
+            status: 'disponible', // Producto listo
             accordion: [
                 {
                     title: 'La Promesa de Aetheria',
@@ -68,6 +70,7 @@ window.onload = function () {
             subtitle: 'El Sello Acondicionador Estabilizante', // Actualizado
             price: 40000, // Mantenemos tu precio actualizado
             images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
+            status: 'disponible', // Producto listo
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -91,8 +94,9 @@ window.onload = function () {
             id: 'aura-mielitae',
             name: 'Aura Mielitae',
             subtitle: 'El Sello Protector Labial', // Actualizado (removido 'de la Colmena')
-            price: 26000,
+            price: 0,
             images: ['images/Aura-Mielitae.jpg'], // Mantenemos tu nombre de imagen
+            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -117,8 +121,9 @@ window.onload = function () {
             id: 'elixir-vitae',
             name: 'Elixir Vitae',
             subtitle: 'El Elixir Restaurador', // Actualizado
-            price: 60000,
+            price: 0,
             images: ['images/Elixir-Vitae.jpg'], // Mantenemos tu nombre de imagen
+            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -143,8 +148,9 @@ window.onload = function () {
             id: 'nectar-divinum',
             name: 'Nectar Divinum',
             subtitle: 'El Elixir Nutritivo de la Raíz', // Actualizado (removido 'Rocío de la Vitalidad Sagrada')
-            price: 26000, // Mantenemos tu precio actualizado
+            price: 0, // Mantenemos tu precio actualizado
             images: ['images/Nectar-Divinum.jpg'], // Mantenemos tu nombre de imagen
+            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -320,6 +326,9 @@ window.onload = function () {
             const cardWrapper = document.createElement('div');
             // Usamos las clases de ancho y snap del blueprint
             cardWrapper.className = 'flex-shrink-0 w-80 sm:w-96 snap-center';
+            const displayStatus = product.status === 'en-crisol'
+                ? 'Aún en el Crisol...'
+                : ''; // O el precio si decides mostrarlo en la tarjeta
 
             // 2. Creamos el enlace que envuelve toda la tarjeta
             const cardLink = document.createElement('a');
@@ -362,6 +371,29 @@ window.onload = function () {
     function showProductDetail(productId) {
         const product = products.find(p => p.id === productId);
         if (!product) return;
+
+        const priceEl = document.getElementById('product-price');
+
+        // LÓGICA DE LORE PARA EL PRECIO
+        if (product.status === 'en-crisol') {
+            priceEl.textContent = "En Proceso de Transmutación";
+            priceEl.classList.add('italic', 'opacity-70'); // Estilo más sutil
+        } else {
+            priceEl.textContent = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0
+            }).format(product.price);
+            priceEl.classList.remove('italic', 'opacity-70');
+        }
+
+        // OPCIONAL: Cambiar el texto del botón de WhatsApp si no está disponible
+        const whatsappBtn = document.getElementById('whatsapp-cta');
+        if (product.status === 'en-crisol') {
+            whatsappBtn.textContent = "[ Consultar Disponibilidad ]";
+        } else {
+            whatsappBtn.textContent = "[ Consultar con el Alquimista ]";
+        }
 
         // El resto de la función es igual...
         document.getElementById('product-name').textContent = product.name;
