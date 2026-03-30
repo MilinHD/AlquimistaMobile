@@ -1,23 +1,21 @@
-﻿// JavaScript source code
-window.onload = function () {
+﻿window.onload = function () {
 
     AOS.init({
         duration: 800,
         once: true,
     });
 
-
     // ===================================================================
-    // BASE DE DATOS DE PRODUCTOS (VERSIÓN FINAL Y COMPLETA CON TODO EL LORE)
+    // BASE DE DATOS DE PRODUCTOS
     // ===================================================================
     const products = [
         {
             id: 'panacea-summus',
             name: 'Panacea Summus',
-            subtitle: 'El Bálsamo de los Ecos Opuestos', // Ya estaba actualizado
+            subtitle: 'El Bálsamo de los Ecos Opuestos',
             price: 50000,
-            images: ['images/Panacea-Summus.jpg'], // Mantenemos tu nombre de imagen
-            status: 'disponible', // Producto listo
+            images: ['images/Panacea-Summus.jpg'],
+            status: 'disponible',
             accordion: [
                 {
                     title: 'La Promesa de Aetheria',
@@ -33,7 +31,6 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
-                    // Corregido data-arquetipo a chironai 
                     content: '<p>Este artefacto nace de la sabiduría de la Tribu Chironai, los sanadores empáticos de Anima Mundi.</p><button data-arquetipo="chironai" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -41,10 +38,10 @@ window.onload = function () {
         {
             id: 'petra-lorien',
             name: 'Petra Lorien',
-            subtitle: 'La Runa Purificadora', // Actualizado
+            subtitle: 'La Runa Purificadora',
             price: 45000,
-            images: ['images/Petra-Lorien.jpg'], // Mantenemos tu nombre de imagen
-            status: 'disponible', // Producto listo
+            images: ['images/Petra-Lorien.jpg'],
+            status: 'disponible',
             accordion: [
                 {
                     title: 'La Promesa de Aetheria',
@@ -67,10 +64,10 @@ window.onload = function () {
         {
             id: 'nox-lucens',
             name: 'Nox Lucens',
-            subtitle: 'El Sello Acondicionador Estabilizante', // Actualizado
-            price: 40000, // Mantenemos tu precio actualizado
-            images: ['images/Nox-Lucens.jpg'], // Mantenemos tu nombre de imagen
-            status: 'disponible', // Producto listo
+            subtitle: 'El Sello Acondicionador Estabilizante',
+            price: 40000,
+            images: ['images/Nox-Lucens.jpg'],
+            status: 'disponible',
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -93,10 +90,10 @@ window.onload = function () {
         {
             id: 'aura-mielitae',
             name: 'Aura Mielitae',
-            subtitle: 'El Sello Protector Labial', // Actualizado (removido 'de la Colmena')
+            subtitle: 'El Sello Protector Labial',
             price: 0,
-            images: ['images/Aura-Mielitae.jpg'], // Mantenemos tu nombre de imagen
-            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
+            images: ['images/Aura-Mielitae.jpg'],
+            status: 'en-crisol',
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -112,7 +109,6 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
-                    // Corregido data-arquetipo a mellisonae 
                     content: '<p>Este artefacto nace de la sabiduría de la Conciencia Mellisonae, los tejedores del Velo Cósmico.</p><button data-arquetipo="mellisonae" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -120,10 +116,10 @@ window.onload = function () {
         {
             id: 'elixir-vitae',
             name: 'Elixir Vitae',
-            subtitle: 'El Elixir Restaurador', // Actualizado
+            subtitle: 'El Elixir Restaurador',
             price: 0,
-            images: ['images/Elixir-Vitae.jpg'], // Mantenemos tu nombre de imagen
-            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
+            images: ['images/Elixir-Vitae.jpg'],
+            status: 'en-crisol',
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -139,7 +135,6 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
-                    // Corregido data-arquetipo a mutabilis 
                     content: '<p>Este artefacto nace de la sabiduría de la Tribu Mutabilis, los maestros de la adaptación y la resiliencia.</p><button data-arquetipo="mutabilis" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Saga ]</button>'
                 }
             ]
@@ -147,10 +142,10 @@ window.onload = function () {
         {
             id: 'nectar-divinum',
             name: 'Nectar Divinum',
-            subtitle: 'El Elixir Nutritivo de la Raíz', // Actualizado (removido 'Rocío de la Vitalidad Sagrada')
-            price: 0, // Mantenemos tu precio actualizado
-            images: ['images/Nectar-Divinum.jpg'], // Mantenemos tu nombre de imagen
-            status: 'en-crisol', // LORE: "En el crisol" (En desarrollo)
+            subtitle: 'El Elixir Nutritivo de la Raíz',
+            price: 0,
+            images: ['images/Nectar-Divinum.jpg'],
+            status: 'en-crisol',
             accordion: [
                 {
                     title: 'La Promesa del Aetheria',
@@ -166,15 +161,14 @@ window.onload = function () {
                 },
                 {
                     title: 'La Entrada del Códice',
-                    // Usamos 'arborian' como ID y cambiamos texto del botón 
-                    content: '<p>Este artefacto es la reconstrucción del rocío sagrado que emana de la Vitalidad Arborian, la esencia misma del Axis Vitae.</p><button data-arquetipo="arborian" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Origen ]</button>'
+                    content: '<p>Este artefacto es la reconstrucción del rocío sagrado que emana de la Vitalidad Arborian, la esencia misma del Axis Vitae.</p><button data-arquetipo="lithosylvan" class="btn btn-outline mt-4 text-sm !py-2 !px-4 open-grimorio-btn-from-product">[ Descubrir su Origen ]</button>'
                 }
             ]
         }
     ];
-// --- Asegúrate de que el resto del código JS (arquetipos, funciones, listeners) sigue después ---
+
     // ===================================================================
-    // LORE DE LOS ARQUETIPOS (VERSIÓN COMPLETA CON 4 TRIBUS)
+    // LORE DE LOS ARQUETIPOS
     // ===================================================================
     const arquetipos = {
         lithosylvan: {
@@ -204,7 +198,7 @@ window.onload = function () {
         },
         chironai: {
             titulo: "Los Chironai",
-            glifo: "images/arquetipo-chironai.png", // Asegúrate de que el nombre de la imagen sea correcto
+            glifo: "images/arquetipo-chironai.png",
             filosofia: {
                 titulo: "La Filosofía",
                 contenido: "La filosofía Chironai se basa en la convicción de que el dolor no es un enemigo, sino un mensaje. Su sabiduría no busca silenciar el grito del cuerpo, sino traducir su eco, aplicando el frío al calor y el movimiento al estancamiento para restaurar la armonía."
@@ -228,7 +222,7 @@ window.onload = function () {
         },
         mellisonae: {
             titulo: "Los Mellisonae",
-            glifo: "images/arquetipo-mellisonae.png", // Asegúrate de que el nombre de la imagen sea correcto
+            glifo: "images/arquetipo-mellisonae.png",
             filosofia: {
                 titulo: "La Filosofía",
                 contenido: "La filosofía Mellisonae enseña que la vida solo puede existir dentro de un límite, una barrera que separa el orden interior de la entropía exterior. Su propósito no es gobernar, sino mantener el Velo, tejer el Sello y proteger lo sagrado."
@@ -252,7 +246,7 @@ window.onload = function () {
         },
         mutabilis: {
             titulo: "Los Mutabilis",
-            glifo: "images/arquetipo-mutabilis.png", // Asegúrate de que el nombre de la imagen sea correcto
+            glifo: "images/arquetipo-mutabilis.png",
             filosofia: {
                 titulo: "La Filosofía",
                 contenido: "La filosofía Mutabilis enseña que la vida no es un estado, sino un proceso de adaptación. No ven el trauma como un enemigo, sino como un catalizador, una oportunidad para metabolizar la experiencia y emerger más resilientes y transformados."
@@ -276,67 +270,48 @@ window.onload = function () {
         }
     };
 
+    // Variables de UI Globales
     const phoneNumber = '573196805286';
-    const galleryView = document.getElementById('formulaciones-gallery');
+    const galleryViewContainer = document.getElementById('formulaciones-gallery-container');
+    const galleryInner = document.getElementById('formulaciones-gallery');
     const detailView = document.getElementById('formulaciones-detail');
-    const backBtn = document.getElementById('back-to-gallery');
-    const menuBtn = document.getElementById('menu-btn');
-    const menuOverlay = document.getElementById('menu-overlay');
     let swiper;
 
-    // ===================================================================
-    // FUNCIÓN DE EVENT LISTENERS (CORREGIDA PARA EL GLIFO)
-    // ===================================================================
+    // --- Inicialización ---
+    setupEventListeners();
+    renderGallery();
+
     function setupEventListeners() {
-        // ANTES: const menuBtn = document.getElementById('menu-btn');
-        // AHORA:
         const glifoBtn = document.getElementById('glifo-btn');
         const menuOverlay = document.getElementById('menu-overlay');
         const backBtn = document.getElementById('back-to-gallery');
 
-        // Listener para el nuevo Glifo (SIMPLIFICADO con clase .is-open)
         glifoBtn.addEventListener('click', () => {
             menuOverlay.classList.toggle('is-open');
         });
 
-        // Hacemos que los enlaces del menú lo cierren al hacer clic
         menuOverlay.querySelectorAll('a').forEach(link => {
-            // ANTES: link.addEventListener('click', () => menuBtn.click());
-            // AHORA:
             link.addEventListener('click', () => glifoBtn.click());
         });
 
-        // El listener del botón "Volver a la galería" no cambia
         backBtn.addEventListener('click', showGallery);
-
-        // El listener del acordeón de productos no cambia
         initAccordion();
     }
 
-    // ===================================================================
-    // FUNCIÓN renderGallery (FINAL Y ALINEADA AL BLUEPRINT)
-    // ===================================================================
     function renderGallery() {
-        // Apuntamos al div interno del carrusel donde van las tarjetas
-        const galleryContainer = document.getElementById('formulaciones-gallery');
-        galleryContainer.innerHTML = ''; // Limpiamos antes de añadir
+        galleryInner.innerHTML = '';
 
         products.forEach(product => {
-            // 1. Creamos el div exterior (wrapper) que controla el tamaño y el snap
             const cardWrapper = document.createElement('div');
-            // Usamos las clases de ancho y snap del blueprint
             cardWrapper.className = 'flex-shrink-0 w-80 sm:w-96 snap-center';
-            const displayStatus = product.status === 'en-crisol'
-                ? 'Aún en el Crisol...'
-                : ''; // O el precio si decides mostrarlo en la tarjeta
 
-            // 2. Creamos el enlace que envuelve toda la tarjeta
+            const displayStatus = product.status === 'en-crisol' ? '<p class="mt-4 italic text-sm opacity-60">Aún en el Crisol...</p>' : '';
+
             const cardLink = document.createElement('a');
-            cardLink.href = `#formulaciones`; // Enlace temporal, JS maneja el clic
-            cardLink.className = 'block h-full product-card-link cursor-pointer'; // Clase para el listener
-            cardLink.dataset.productId = product.id; // Guardamos el ID
+            cardLink.href = `#formulaciones`;
+            cardLink.className = 'block h-full product-card-link cursor-pointer';
+            cardLink.dataset.productId = product.id;
 
-            // 3. Creamos el contenido interno de la tarjeta (el div con fondo, borde, etc.)
             cardLink.innerHTML = `
             <div class="bg-pizarra-suave border border-oro-viejo/30 rounded-lg shadow-lg h-full flex flex-col overflow-hidden product-card transition-transform duration-300 ease-in-out hover:-translate-y-1"> 
                 <div class="h-64 w-full flex-shrink-0">
@@ -345,20 +320,16 @@ window.onload = function () {
                 <div class="p-6 text-center flex flex-col flex-grow">
                     <h3 class="text-2xl text-luz-de-vela font-cinzel">${product.name}</h3>
                     <p class="text-md text-oro-viejo mt-2">${product.subtitle}</p>
-                    <div class="mt-auto pt-4"> 
-                        </div>
+                    ${displayStatus}
                 </div>
             </div>
-        `;
+            `;
 
-            // Añadimos el enlace (con la tarjeta dentro) al wrapper
             cardWrapper.appendChild(cardLink);
-            // Añadimos el wrapper al contenedor principal de la galería
-            galleryContainer.appendChild(cardWrapper);
+            galleryInner.appendChild(cardWrapper);
         });
 
-        // Añadimos el listener para los clics en las nuevas tarjetas (este listener ya lo tenías, lo mantenemos)
-        galleryContainer.querySelectorAll('.product-card-link').forEach(link => {
+        galleryInner.querySelectorAll('.product-card-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const productId = e.currentTarget.dataset.productId;
@@ -367,17 +338,26 @@ window.onload = function () {
         });
     }
 
-    // VERSIÓN CORREGIDA de showProductDetail
     function showProductDetail(productId) {
         const product = products.find(p => p.id === productId);
         if (!product) return;
 
+        // Limpiamos los IDs duplicados al momento de capturar elementos del DOM
+        const nameEl = document.getElementById('product-name');
+        const subtitleEl = document.getElementById('product-subtitle');
         const priceEl = document.getElementById('product-price');
+        const whatsappBtn = document.getElementById('whatsapp-cta');
+        const accordionContainer = document.getElementById('product-accordion');
+        const swiperWrapper = document.getElementById('product-swiper-wrapper');
+
+        nameEl.textContent = product.name;
+        subtitleEl.textContent = product.subtitle;
 
         // LÓGICA DE LORE PARA EL PRECIO
         if (product.status === 'en-crisol') {
-            priceEl.textContent = "En Proceso de Transmutación";
-            priceEl.classList.add('italic', 'opacity-70'); // Estilo más sutil
+            priceEl.textContent = "Aún en el Crisol...";
+            priceEl.classList.add('italic', 'opacity-70');
+            whatsappBtn.textContent = "[ Consultar Disponibilidad ]";
         } else {
             priceEl.textContent = new Intl.NumberFormat('es-CO', {
                 style: 'currency',
@@ -385,47 +365,30 @@ window.onload = function () {
                 minimumFractionDigits: 0
             }).format(product.price);
             priceEl.classList.remove('italic', 'opacity-70');
+            whatsappBtn.textContent = "[ Consultar con el Aetherista ]";
         }
 
-        // OPCIONAL: Cambiar el texto del botón de WhatsApp si no está disponible
-        const whatsappBtn = document.getElementById('whatsapp-cta');
-        if (product.status === 'en-crisol') {
-            whatsappBtn.textContent = "[ Consultar Disponibilidad ]";
-        } else {
-            whatsappBtn.textContent = "[ Consultar con el Alquimista ]";
-        }
+        whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Hola Aetheria, quisiera consultar sobre el producto: ${product.name}.`)}`;
 
-        // El resto de la función es igual...
-        document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-subtitle').textContent = product.subtitle;
-        const priceEl = document.getElementById('product-price');
-        priceEl.textContent = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(product.price);
-        const accordionContainer = document.getElementById('product-accordion');
         accordionContainer.innerHTML = product.accordion.map(item => `<div class="accordion-item bg-pizarra-suave rounded-lg border border-oro-viejo"><button class="accordion-header w-full flex justify-between items-center text-left p-4"><h4 class="text-lg">${item.title}</h4><span class="icon-plus text-oro-viejo text-2xl">+</span></button><div class="accordion-content"><div class="p-4 prose prose-invert max-w-none">${item.content}</div></div></div>`).join('');
-        const swiperWrapper = document.getElementById('product-swiper-wrapper');
+
         swiperWrapper.innerHTML = product.images.map(img => `<div class="swiper-slide"><img src="${img}" class="w-full h-auto" loading="lazy"></div>`).join('');
+
         if (swiper) swiper.destroy(true, true);
         swiper = new Swiper('.swiper-container', { loop: true, pagination: { el: '.swiper-pagination', clickable: true }, autoplay: { delay: 4000, disableOnInteraction: false } });
-        const whatsappBtn = document.getElementById('whatsapp-cta');
-        whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Hola Aetheria, quisiera consultar sobre el producto: ${product.name}.`)}`;
-        galleryView.classList.add('hidden');
+
+        galleryViewContainer.classList.add('hidden');
         detailView.classList.remove('hidden');
         window.scrollTo({ top: detailView.offsetTop - 100, behavior: 'smooth' });
 
-        // --- AÑADIDO: Creamos un estado en el historial para "recordar" que estamos en la vista de detalle ---
         history.pushState({ view: 'productDetail' }, null);
     }
-  
 
-// VERSIÓN CORREGIDA de showGallery
-function showGallery() {
-    detailView.classList.add('hidden');
-    galleryView.classList.remove('hidden');
-
-    // --- AÑADIDO: Limpiamos la URL para que el usuario pueda salir de la página si vuelve a dar "atrás" ---
-    // Usamos replaceState para no crear una nueva entrada en el historial
-    history.replaceState({ view: 'gallery' }, null, ' ');
-}
+    function showGallery() {
+        detailView.classList.add('hidden');
+        galleryViewContainer.classList.remove('hidden');
+        history.replaceState({ view: 'gallery' }, null, ' ');
+    }
 
     function initAccordion() {
         const detailContainer = document.getElementById('formulaciones-detail');
@@ -457,105 +420,95 @@ function showGallery() {
         });
     }
 
-    // --- VERSIÓN MODIFICADA Y SEGURA ---
-    // Infusion Oracle Logic
+    // --- Lógica del Oráculo (Códice) ---
     const codiceGenerateBtn = document.getElementById('generate-codice-btn');
     const codiceResultContainer = document.getElementById('codice-result-container');
     const codiceTopicInput = document.getElementById('codice-topic-input');
 
-    // Reemplaza la función existente con esta versión completa y corregida
-    // VERSIÓN FINAL Y DEFINITIVA
-    codiceGenerateBtn.addEventListener('click', async () => {
-        const topic = codiceTopicInput.value.trim();
-        if (!topic) {
-            codiceResultContainer.textContent = "Describe tu sentir para que el Oráculo pueda guiarte.";
-            return;
-        }
-
-        codiceResultContainer.innerHTML = '<div class="spinner mx-auto"></div>';
-        codiceGenerateBtn.disabled = true;
-        codiceTopicInput.disabled = true;
-
-        const prompt = `Eres un sabio alquimista y herbolario, con un tono poético y místico. Un usuario describe su malestar como: '${topic}'. Basado en esto, recomienda una infusión simple con 2-3 ingredientes comunes. Incluye un breve 'modo de uso' (ej. 'Beber una taza tibia 30 minutos antes de dormir'). Proporciona toda la información en formato JSON.`;
-
-        const schema = {
-            type: "OBJECT",
-            properties: {
-                nombreInfusion: { type: "STRING", description: "Un nombre poético y místico para la infusión (ej. 'Aliento de Montaña Serena')" },
-                ingredientes: { type: "ARRAY", items: { "type": "STRING" }, description: "Una lista de 2 a 3 ingredientes simples y comunes." },
-                preparacion: { type: "STRING", description: "Instrucciones de preparación muy sencillas y breves." },
-                modo_de_uso: { type: "STRING", description: "Instrucciones breves sobre cuándo o cómo tomar la infusión." },
-                sabiduria: { type: "STRING", description: "Una explicación corta (máx 60 palabras), poética y mística de sus beneficios." }
-            },
-            required: ["nombreInfusion", "ingredientes", "preparacion", "modo_de_uso", "sabiduria"]
-        };
-
-        try {
-            const response = await fetch('/.netlify/functions/gemini-proxy', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt, schema })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || `API Error: ${response.statusText}`);
+    if (codiceGenerateBtn) {
+        codiceGenerateBtn.addEventListener('click', async () => {
+            const topic = codiceTopicInput.value.trim();
+            if (!topic) {
+                codiceResultContainer.textContent = "Describe tu sentir para que el Oráculo pueda guiarte.";
+                return;
             }
 
-            const data = await response.json();
-            const infusionData = JSON.parse(data.response);
+            codiceResultContainer.innerHTML = '<div class="spinner mx-auto"></div>';
+            codiceGenerateBtn.disabled = true;
+            codiceTopicInput.disabled = true;
 
-            // El contenedor del resultado ahora tiene un `div` que envuelve todo
-            codiceResultContainer.innerHTML = `
-            <div> <div class="text-left w-full">
-                    <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
-                    <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
-                    <ul class="list-disc list-inside mb-4 ml-4">
-                        ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
-                    </ul>
-                    <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
-                    <p class="mb-2"><strong class="text-purpura-alquimista">Modo de Uso:</strong> ${infusionData.modo_de_uso}</p>
-                    <p class="italic mt-4">“${infusionData.sabiduria}”</p>
-                </div>
+            const prompt = `Eres un sabio alquimista y herbolario, con un tono poético y místico. Un usuario describe su malestar como: '${topic}'. Basado en esto, recomienda una infusión simple con 2-3 ingredientes comunes. Incluye un breve 'modo de uso' (ej. 'Beber una taza tibia 30 minutos antes de dormir'). Proporciona toda la información en formato JSON.`;
 
-                <div class="text-oro-viejo text-2xl tracking-widest my-6 text-center">. . .</div>
-                <p class="subtitle text-center text-luz-de-vela/80 text-sm">
-                    Si esta sabiduría resuena contigo y buscas una guía más profunda, 
-                    <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Aetheria, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
-                        Aetheria te escucha.
-                    </a>
-                </p>
-            </div> `;
+            const schema = {
+                type: "OBJECT",
+                properties: {
+                    nombreInfusion: { type: "STRING" },
+                    ingredientes: { type: "ARRAY", items: { "type": "STRING" } },
+                    preparacion: { type: "STRING" },
+                    modo_de_uso: { type: "STRING" },
+                    sabiduria: { type: "STRING" }
+                },
+                required: ["nombreInfusion", "ingredientes", "preparacion", "modo_de_uso", "sabiduria"]
+            };
 
-        } catch (error) {
-            console.error("Error generating Infusion:", error);
-            codiceResultContainer.textContent = "La energía del Oráculo está fluctuando. Inténtalo de nuevo en un momento.";
-        } finally {
-            codiceGenerateBtn.disabled = false;
-            codiceTopicInput.disabled = false;
-            codiceTopicInput.value = '';
-        }
-    });
+            try {
+                const response = await fetch('/.netlify/functions/gemini-proxy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt, schema })
+                });
 
-    // Manifiesto WhatsApp CTA
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `API Error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                const infusionData = JSON.parse(data.response);
+
+                codiceResultContainer.innerHTML = `
+                <div> <div class="text-left w-full">
+                        <h4 class="text-xl text-oro-viejo mb-2">${infusionData.nombreInfusion}</h4>
+                        <p class="mb-2"><strong class="text-purpura-alquimista">Ingredientes:</strong></p>
+                        <ul class="list-disc list-inside mb-4 ml-4">
+                            ${infusionData.ingredientes.map(i => `<li>${i}</li>`).join('')}
+                        </ul>
+                        <p class="mb-2"><strong class="text-purpura-alquimista">Preparación:</strong> ${infusionData.preparacion}</p>
+                        <p class="mb-2"><strong class="text-purpura-alquimista">Modo de Uso:</strong> ${infusionData.modo_de_uso}</p>
+                        <p class="italic mt-4">“${infusionData.sabiduria}”</p>
+                    </div>
+                    <div class="text-oro-viejo text-2xl tracking-widest my-6 text-center">. . .</div>
+                    <p class="subtitle text-center text-luz-de-vela/80 text-sm">
+                        Si esta sabiduría resuena contigo y buscas una guía más profunda, 
+                        <a href="https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Aetheria, la sabiduría del códice me ha hablado y quisiera una guía más profunda.')}" target="_blank" class="text-oro-viejo hover:text-luz-de-vela transition-colors underline">
+                            Aetheria te escucha.
+                        </a>
+                    </p>
+                </div> `;
+
+            } catch (error) {
+                console.error("Error generating Infusion:", error);
+                codiceResultContainer.textContent = "La energía del Oráculo está fluctuando. Inténtalo de nuevo en un momento.";
+            } finally {
+                codiceGenerateBtn.disabled = false;
+                codiceTopicInput.disabled = false;
+                codiceTopicInput.value = '';
+            }
+        });
+    }
+
     const manifiestoWhatsAppBtn = document.getElementById('whatsapp-manifiesto-cta');
     if (manifiestoWhatsAppBtn) {
         manifiestoWhatsAppBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent('Hola Aetheria, me gustaría iniciar una conversación.')}`;
     }
 
-    // Initialize App
-    setupEventListeners();
-    renderGallery();
-    // ===================================================================
-    // Lógica del Grimorio Revelado (VERSIÓN FINAL Y COMPLETA)
-    // ===================================================================
+    // --- Lógica del Grimorio ---
     const modal = document.getElementById('grimorio-modal');
     const modalContent = document.getElementById('grimorio-content');
     const modalBody = document.getElementById('grimorio-body');
     const closeBtn = document.getElementById('close-grimorio-btn');
     const openBtns = document.querySelectorAll('.open-grimorio-btn');
 
-    // Función que solo maneja la animación de cierre
     function closeGrimorioAnimation() {
         modal.classList.add('opacity-0');
         modalContent.classList.add('scale-95');
@@ -564,12 +517,10 @@ function showGallery() {
         }, 300);
     }
 
-    // Función principal para abrir el grimorio
     function openGrimorio(arquetipoId) {
         const data = arquetipos[arquetipoId];
         if (!data) return;
 
-        // Construir el contenido del grimorio dinámicamente con la nueva estructura
         modalBody.innerHTML = `
         <div class="text-center mb-8">
             <div class="w-32 h-32 mx-auto mb-4">
@@ -579,12 +530,10 @@ function showGallery() {
         </div>
 
         <div class="space-y-8 text-luz-de-vela/90 text-left">
-            
             <div>
                 <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.filosofia.titulo}</h3>
                 <p class="text-sm italic">“${data.filosofia.contenido}”</p>
             </div>
-            
             <div>
                 <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.dualidad.titulo}</h3>
                 <div class="space-y-2 text-sm">
@@ -592,12 +541,10 @@ function showGallery() {
                     <p>${data.dualidad.falla}</p>
                 </div>
             </div>
-
             <div>
                 <h3 class="text-xl text-purpura-alquimista mb-2 font-semibold">${data.leccion.titulo}</h3>
                 <p class="text-sm">"${data.leccion.contenido}"</p>
             </div>
-
             <div>
                 <h3 class="text-xl text-purpura-alquimista mb-4 font-semibold">${data.ritual.titulo}</h3>
                 <p class="text-sm mb-6">${data.ritual.introduccion}</p>
@@ -616,26 +563,19 @@ function showGallery() {
                 </div>
             </div>
         </div>
-    `;
+        `;
 
-        // El resto de la lógica de control del modal (no cambia)
         modal.classList.remove('invisible', 'opacity-0');
         modalContent.classList.remove('scale-95');
         location.hash = arquetipoId;
     }
 
-    // Función principal para cerrar el grimorio
     function closeGrimorio() {
         const base = window.location.href.split('#')[0];
         history.replaceState(null, null, base);
         closeGrimorioAnimation();
     }
 
-    // ===================================================================
-    // Event Listeners (VERSIÓN FINAL Y COMPLETA)
-    // ===================================================================
-
-    // Para abrir el modal del Grimorio desde las cartas de Arquetipo
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const arquetipoId = e.currentTarget.dataset.arquetipo;
@@ -643,17 +583,14 @@ function showGallery() {
         });
     });
 
-    // Para cerrar el Grimorio con el botón 'X'
     closeBtn.addEventListener('click', closeGrimorio);
 
-    // Para cerrar el Grimorio haciendo clic fuera del contenido
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeGrimorio();
         }
     });
 
-    // Para hacer clickables los artefactos DENTRO del Grimorio
     modalBody.addEventListener('click', (e) => {
         const link = e.target.closest('.product-link-from-grimorio');
         if (link) {
@@ -666,32 +603,21 @@ function showGallery() {
         }
     });
 
-    // --- ESTE ES EL FRAGMENTO NUEVO, YA INTEGRADO ---
-    // Listener para los botones "Descubrir Saga" DENTRO de los productos
     detailView.addEventListener('click', (e) => {
         const sagaBtn = e.target.closest('.open-grimorio-btn-from-product');
         if (sagaBtn) {
-            e.preventDefault(); // Prevenimos cualquier comportamiento por defecto del botón
+            e.preventDefault();
             const arquetipoId = sagaBtn.dataset.arquetipo;
 
-            // Si el arquetipo existe en nuestra base de datos, procedemos
             if (arquetipos[arquetipoId]) {
-                // Primero cerramos la vista de la tienda y, justo después, abrimos el grimorio
-                showGallery(); // Esto regresa a la galería principal
+                showGallery();
                 setTimeout(() => {
                     openGrimorio(arquetipoId);
-                }, 350); // Un pequeño retraso para una transición suave
-            } else {
-                // Si el arquetipo aún no está definido (ej. para un producto de una tribu futura), no hacemos nada o mostramos un aviso.
-                console.warn(`El arquetipo "${arquetipoId}" aún no ha sido definido en el grimorio.`);
-                // Opcionalmente, podrías mostrar una alerta al usuario.
-                // alert(`La saga para el arquetipo "${arquetipoId}" será revelada próximamente.`);
+                }, 350);
             }
         }
     });
-    // --- FIN DEL FRAGMENTO NUEVO ---
 
-    // Listener para el botón "atrás" que afecta al Grimorio
     window.addEventListener('hashchange', () => {
         const isArquetipoHash = Object.keys(arquetipos).some(id => `#${id}` === location.hash);
         if (!isArquetipoHash && !modal.classList.contains('invisible')) {
@@ -699,10 +625,9 @@ function showGallery() {
         }
     });
 
-    // Listener para el botón "atrás" que afecta a la Tienda
     window.addEventListener('popstate', (event) => {
         if (!detailView.classList.contains('hidden')) {
             showGallery();
         }
     });
-}; // Esta es la llave de cierre del 'window.onload', asegúrate de que esté al final.
+}; // Cierre de window.onload
