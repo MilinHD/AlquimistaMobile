@@ -662,18 +662,46 @@
                 const costoFmt = new Intl.NumberFormat('es-CO').format(costoItem);
 
                 matrazItemsContainer.innerHTML += `
-                <div class="flex justify-between items-center text-luz-de-vela text-sm">
-                    <div>
+                <div class="flex justify-between items-center text-luz-de-vela text-sm bg-noche-alquimista/30 p-2 rounded border border-oro-viejo/10">
+                    <div class="flex-grow">
                         <span class="font-bold text-oro-viejo">${item.cantidad}x</span> ${item.nombre} 
-                        <span class="text-xs opacity-60 ml-2">($${precioFmt} c/u)</span>
+                        <span class="text-xs opacity-60 ml-1">($${precioFmt} c/u)</span>
                     </div>
-                    <div class="font-cinzel">$${costoFmt}</div>
+                    <div class="flex items-center gap-4">
+                        <div class="font-cinzel">$${costoFmt}</div>
+                        <button class="text-red-400 hover:text-red-300 transition-colors btn-eliminar-item" data-id="${item.id}" title="Retirar del Matraz">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
                 </div>
             `;
             });
 
             matrazSubtotalEl.textContent = "$" + new Intl.NumberFormat('es-CO').format(subtotal);
         }
+    // Función para retirar un ritual del matraz
+    function eliminarDelMatraz(id) {
+        matrazRitual = matrazRitual.filter(item => item.id !== id);
+        renderizarMatraz(); // Volvemos a dibujar el checkout
+        actualizarBotonMatraz(); // Actualizamos el numerito flotante
+
+        // Si el matraz quedó vacío, cerramos el modal automáticamente después de un segundo
+        if (matrazRitual.length === 0) {
+            setTimeout(() => {
+                btnCloseMatraz.click();
+            }, 1000);
+        }
+    }
+
+    // Escuchador de clics para los botones de eliminar dentro del modal
+    matrazItemsContainer.addEventListener('click', (e) => {
+        const btnEliminar = e.target.closest('.btn-eliminar-item');
+        if (btnEliminar) {
+            const id = btnEliminar.dataset.id;
+            eliminarDelMatraz(id);
+        }
+    });
+
 
         // Abrir modal
         btnVerMatraz.addEventListener('click', () => {
