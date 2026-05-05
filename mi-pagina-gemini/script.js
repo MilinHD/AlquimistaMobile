@@ -617,10 +617,12 @@
         if (!detailView.classList.contains('hidden')) {
             showGallery();
         }
-        // ===================================================================
-        // LÓGICA DEL MATRAZ Y CHECKOUT
-        // ===================================================================
-        const btnVerMatraz = document.getElementById('ver-matraz-btn');
+    }); // <--- ¡AQUÍ ESTÁ LA MAGIA! Faltaba cerrar esta función aquí.
+
+    // ===================================================================
+    // LÓGICA DEL MATRAZ Y CHECKOUT
+    // ===================================================================
+    const btnVerMatraz = document.getElementById('ver-matraz-btn');
         const modalMatraz = document.getElementById('matraz-modal');
         const btnCloseMatraz = document.getElementById('close-matraz-btn');
         const matrazItemsContainer = document.getElementById('matraz-items-container');
@@ -726,5 +728,5 @@
 
             window.open(url, '_blank');
         });
-    });
+
 }; // Cierre de window.onload
