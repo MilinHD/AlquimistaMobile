@@ -64,7 +64,7 @@
                     Ver las Obras
                     <span class="menu-separator">·</span>
                 </a>
-                
+
                 <a href="#arquetipos" class="menu-item py-3 text-luz-de-vela hover:text-oro-viejo relative">
                     Los Arquetipos
                     <span class="menu-separator">·</span>
@@ -185,7 +185,7 @@
             </div>
 
         </section>
-       
+
 
         <section id="arquetipos" class="py-16 overflow-hidden relative">
 
@@ -329,6 +329,56 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js"></script>
+    <!-- ========================================== -->
+    <!-- BOTÓN FLOTANTE DEL MATRAZ -->
+    <!-- ========================================== -->
+    <button id="ver-matraz-btn" class="fixed bottom-6 right-6 z-40 btn shadow-2xl flex items-center gap-2 hidden transition-transform hover:scale-105">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        [ Ver Matraz ]
+        <span id="matraz-count" class="bg-noche-alquimista text-oro-viejo rounded-full w-6 h-6 flex items-center justify-center text-xs ml-1 border border-oro-viejo">0</span>
+    </button>
+
+    <!-- ========================================== -->
+    <!-- MODAL DEL MATRAZ (EL CHECKOUT) -->
+    <!-- ========================================== -->
+    <div id="matraz-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-noche-alquimista/90 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="bg-pizarra-suave border border-oro-viejo rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative transform scale-95 transition-transform duration-300 scrollbar-hide">
+
+            <button id="close-matraz-btn" class="absolute top-4 right-4 text-oro-viejo hover:text-luz-de-vela z-20">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="p-8 pt-12">
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl text-oro-viejo font-cinzel">Tu Matraz</h2>
+                    <p class="subtitle text-purpura-alquimista">Los rituales que has reunido</p>
+                </div>
+
+                <!-- Aquí se inyectarán los productos con JS -->
+                <div id="matraz-items-container" class="space-y-4 mb-6 border-b border-oro-viejo/30 pb-6">
+                    <!-- Contenido dinámico -->
+                </div>
+
+                <div class="text-right mb-8">
+                    <p class="text-luz-de-vela/70 text-sm italic">*(El costo de envío será calculado por el Aetherista)*</p>
+                    <p class="text-xl text-oro-viejo font-cinzel mt-1">Subtotal: <span id="matraz-subtotal">$0</span></p>
+                </div>
+
+                <!-- Formulario de Coordenadas -->
+                <div class="space-y-4">
+                    <h3 class="text-lg text-luz-de-vela font-cinzel border-b border-oro-viejo/30 pb-2">Coordenadas de Entrega</h3>
+                    <input type="text" id="pedido-nombre" placeholder="Nombre de quien recibe" class="input-alquimista">
+                    <input type="text" id="pedido-direccion" placeholder="Dirección exacta" class="input-alquimista">
+                    <input type="text" id="pedido-ciudad" placeholder="Ciudad" class="input-alquimista">
+                    <input type="tel" id="pedido-telefono" placeholder="Teléfono de contacto" class="input-alquimista">
+
+                    <button id="sellar-peticion-btn" class="btn w-full mt-6 text-sm">
+                        [ Sellar Petición por WhatsApp ]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="grimorio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-noche-alquimista/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300">
 
         <div id="grimorio-content" class="bg-pizarra-suave border border-oro-viejo rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative transform scale-95 transition-transform duration-300 scrollbar-hide">

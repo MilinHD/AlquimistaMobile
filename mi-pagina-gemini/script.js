@@ -450,6 +450,7 @@
         }
 
         console.log("Matraz actual:", matrazRitual);
+        actualizarBotonMatraz(); // <--- ESTA LÍNEA ES NUEVA
     }
     function initAccordion() {
         const detailContainer = document.getElementById('formulaciones-detail');
@@ -616,5 +617,114 @@
         if (!detailView.classList.contains('hidden')) {
             showGallery();
         }
+        // ===================================================================
+        // LÓGICA DEL MATRAZ Y CHECKOUT
+        // ===================================================================
+        const btnVerMatraz = document.getElementById('ver-matraz-btn');
+        const modalMatraz = document.getElementById('matraz-modal');
+        const btnCloseMatraz = document.getElementById('close-matraz-btn');
+        const matrazItemsContainer = document.getElementById('matraz-items-container');
+        const matrazSubtotalEl = document.getElementById('matraz-subtotal');
+        const btnSellarPeticion = document.getElementById('sellar-peticion-btn');
+
+        // Muestra u oculta el botón flotante según los items
+        function actualizarBotonMatraz() {
+            const countEl = document.getElementById('matraz-count');
+            let totalItems = 0;
+            matrazRitual.forEach(item => totalItems += item.cantidad);
+
+            if (totalItems > 0) {
+                btnVerMatraz.classList.remove('hidden');
+                countEl.textContent = totalItems;
+            } else {
+                btnVerMatraz.classList.add('hidden');
+            }
+        }
+
+        // Renderiza el contenido dentro del modal
+        function renderizarMatraz() {
+            matrazItemsContainer.innerHTML = '';
+            let subtotal = 0;
+
+            if (matrazRitual.length === 0) {
+                matrazItemsContainer.innerHTML = '<p class="text-luz-de-vela/70 text-center italic">Tu matraz está vacío.</p>';
+                matrazSubtotalEl.textContent = "$0";
+                return;
+            }
+
+            matrazRitual.forEach(item => {
+                const costoItem = item.cantidad * item.precio;
+                subtotal += costoItem;
+
+                const precioFmt = new Intl.NumberFormat('es-CO').format(item.precio);
+                const costoFmt = new Intl.NumberFormat('es-CO').format(costoItem);
+
+                matrazItemsContainer.innerHTML += `
+                <div class="flex justify-between items-center text-luz-de-vela text-sm">
+                    <div>
+                        <span class="font-bold text-oro-viejo">${item.cantidad}x</span> ${item.nombre} 
+                        <span class="text-xs opacity-60 ml-2">($${precioFmt} c/u)</span>
+                    </div>
+                    <div class="font-cinzel">$${costoFmt}</div>
+                </div>
+            `;
+            });
+
+            matrazSubtotalEl.textContent = "$" + new Intl.NumberFormat('es-CO').format(subtotal);
+        }
+
+        // Abrir modal
+        btnVerMatraz.addEventListener('click', () => {
+            renderizarMatraz();
+            modalMatraz.classList.remove('invisible', 'opacity-0');
+            modalMatraz.querySelector('div').classList.remove('scale-95');
+        });
+
+        // Cerrar modal
+        btnCloseMatraz.addEventListener('click', () => {
+            modalMatraz.classList.add('opacity-0');
+            modalMatraz.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modalMatraz.classList.add('invisible'), 300);
+        });
+
+        // Generar el mensaje de WhatsApp (Nuestra función maestra)
+        btnSellarPeticion.addEventListener('click', () => {
+            if (matrazRitual.length === 0) return;
+
+            const nombre = document.getElementById('pedido-nombre').value.trim();
+            const direccion = document.getElementById('pedido-direccion').value.trim();
+            const ciudad = document.getElementById('pedido-ciudad').value.trim();
+            const telefono = document.getElementById('pedido-telefono').value.trim();
+
+            if (!nombre || !direccion || !ciudad || !telefono) {
+                alert("Por favor, completa todas las coordenadas para sellar la petición.");
+                return;
+            }
+
+            const datosEnvio = { nombre, direccion, ciudad, telefono };
+
+            let mensaje = "Saludos Aetherista, Deseo solicitar el siguiente ritual:\n\n";
+            let subtotalCosto = 0;
+
+            matrazRitual.forEach(item => {
+                let costoItem = item.cantidad * item.precio;
+                subtotalCosto += costoItem;
+                let costoItemFormat = new Intl.NumberFormat('es-CO').format(costoItem);
+                mensaje += `✨ ${item.cantidad}x ${item.nombre} ($${costoItemFormat})\n`;
+            });
+
+            mensaje += `\n*Coordenadas de entrega:*\n`;
+            mensaje += `Recibe: ${datosEnvio.nombre}\n`;
+            mensaje += `Dirección: ${datosEnvio.direccion}, ${datosEnvio.ciudad}\n`;
+            mensaje += `Contacto: ${datosEnvio.telefono}\n\n`;
+
+            let subtotalFormat = new Intl.NumberFormat('es-CO').format(subtotalCosto);
+            mensaje += `*Subtotal de la obra: $${subtotalFormat}*\n`;
+            mensaje += `_(Quedo atento al cálculo del envío)_`;
+
+            const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(mensaje)}`;
+
+            window.open(url, '_blank');
+        });
     });
 }; // Cierre de window.onload
