@@ -276,6 +276,9 @@
     const galleryInner = document.getElementById('formulaciones-gallery');
     const detailView = document.getElementById('formulaciones-detail');
     let swiper;
+    // --- NUEVAS VARIABLES DEL MATRAZ ---
+    let matrazRitual = [];
+    let cantidadActual = 1;
 
     // --- Inicialización ---
     setupEventListeners();
@@ -346,30 +349,70 @@
         const nameEl = document.getElementById('product-name');
         const subtitleEl = document.getElementById('product-subtitle');
         const priceEl = document.getElementById('product-price');
-        const whatsappBtn = document.getElementById('whatsapp-cta');
         const accordionContainer = document.getElementById('product-accordion');
         const swiperWrapper = document.getElementById('product-swiper-wrapper');
 
-        nameEl.textContent = product.name;
-        subtitleEl.textContent = product.subtitle;
+        // --- NUEVAS REFERENCIAS PARA EL MATRAZ ---
+        const accionesDisponibles = document.getElementById('acciones-disponibles');
+        const whatsappBtnCrisol = document.getElementById('whatsapp-cta-crisol');
+        const qtyValueEl = document.getElementById('qty-value');
+        const qtyMinusBtn = document.getElementById('qty-minus');
+        const qtyPlusBtn = document.getElementById('qty-plus');
+        const addToMatrazBtn = document.getElementById('add-to-matraz-btn');
 
-        // LÓGICA DE LORE PARA EL PRECIO
+        // Reiniciar la cantidad a 1 cada vez que se abre un producto nuevo
+        cantidadActual = 1;
+        qtyValueEl.textContent = cantidadActual;
+
+        // --- LÓGICA DE ESTADOS (Disponible vs En Crisol) ---
         if (product.status === 'en-crisol') {
             priceEl.textContent = "Aún en el Crisol...";
             priceEl.classList.add('italic', 'opacity-70');
-            whatsappBtn.textContent = "[ Consultar Disponibilidad ]";
+
+            // Ocultamos el selector de cantidades y mostramos el botón directo
+            accionesDisponibles.classList.add('hidden');
+            whatsappBtnCrisol.classList.remove('hidden');
+            whatsappBtnCrisol.classList.add('inline-block');
+            whatsappBtnCrisol.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Saludos Aetherista, quisiera consultar sobre el artefacto en crisol: ${product.name}.`)}`;
         } else {
             priceEl.textContent = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                minimumFractionDigits: 0
+                style: 'currency', currency: 'COP', minimumFractionDigits: 0
             }).format(product.price);
             priceEl.classList.remove('italic', 'opacity-70');
-            whatsappBtn.textContent = "[ Consultar con el Aetherista ]";
+
+            // Mostramos el selector de cantidades y ocultamos el botón directo
+            accionesDisponibles.classList.remove('hidden');
+            accionesDisponibles.classList.add('flex');
+            whatsappBtnCrisol.classList.add('hidden');
+            whatsappBtnCrisol.classList.remove('inline-block');
         }
 
-        whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(`Hola Aetheria, quisiera consultar sobre el producto: ${product.name}.`)}`;
+        // --- LÓGICA DEL SELECTOR Y BOTÓN MATRAZ ---
+        qtyMinusBtn.onclick = function () {
+            if (cantidadActual > 1) {
+                cantidadActual--;
+                qtyValueEl.textContent = cantidadActual;
+            }
+        };
 
+        qtyPlusBtn.onclick = function () {
+            cantidadActual++;
+            qtyValueEl.textContent = cantidadActual;
+        };
+
+        addToMatrazBtn.onclick = function () {
+            agregarAlMatraz(product, cantidadActual);
+
+            // Retroalimentación visual (la magia)
+            const originalText = this.textContent;
+            this.textContent = "[ Elemento Añadido ]";
+            this.classList.add('bg-purpura-alquimista', 'text-luz-de-vela', 'border-purpura-alquimista');
+
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.classList.remove('bg-purpura-alquimista', 'text-luz-de-vela', 'border-purpura-alquimista');
+            }, 1500);
+        };
         accordionContainer.innerHTML = product.accordion.map(item => `<div class="accordion-item bg-pizarra-suave rounded-lg border border-oro-viejo"><button class="accordion-header w-full flex justify-between items-center text-left p-4"><h4 class="text-lg">${item.title}</h4><span class="icon-plus text-oro-viejo text-2xl">+</span></button><div class="accordion-content"><div class="p-4 prose prose-invert max-w-none">${item.content}</div></div></div>`).join('');
 
         swiperWrapper.innerHTML = product.images.map(img => `<div class="swiper-slide"><img src="${img}" class="w-full h-auto" loading="lazy"></div>`).join('');
@@ -390,6 +433,24 @@
         history.replaceState({ view: 'gallery' }, null, ' ');
     }
 
+    // --- NUEVA FUNCIÓN: AGREGAR AL MATRAZ ---
+    function agregarAlMatraz(producto, cantidad) {
+        // Revisamos si el artefacto ya está en el matraz
+        const itemExistente = matrazRitual.find(item => item.id === producto.id);
+
+        if (itemExistente) {
+            itemExistente.cantidad += cantidad;
+        } else {
+            matrazRitual.push({
+                id: producto.id,
+                nombre: producto.name,
+                precio: producto.price,
+                cantidad: cantidad
+            });
+        }
+
+        console.log("Matraz actual:", matrazRitual);
+    }
     function initAccordion() {
         const detailContainer = document.getElementById('formulaciones-detail');
         if (!detailContainer) return;

@@ -164,8 +164,23 @@
                     <p id="product-price" class="font-cinzel text-2xl text-oro-viejo my-4"></p>
                 </div>
                 <div id="product-accordion" class="my-8 space-y-2"></div>
-                <div class="text-center my-8">
-                    <a id="whatsapp-cta" href="#" class="btn">[Consultar con el Aetherista]</a>
+                <div id="product-action-container" class="text-center my-8 flex flex-col items-center gap-4">
+                    <div id="acciones-disponibles" class="flex flex-col sm:flex-row items-center gap-4 w-full max-w-xs mx-auto">
+                        <!-- Selector de cantidad -->
+                        <div class="flex items-center justify-between border border-oro-viejo rounded-lg p-1 w-32 bg-noche-alquimista/50">
+                            <button id="qty-minus" class="text-oro-viejo hover:text-luz-de-vela px-4 py-2 text-xl transition-colors">-</button>
+                            <span id="qty-value" class="text-luz-de-vela font-cinzel text-lg">1</span>
+                            <button id="qty-plus" class="text-oro-viejo hover:text-luz-de-vela px-4 py-2 text-xl transition-colors">+</button>
+                        </div>
+                        <!-- Botón para añadir -->
+                        <button id="add-to-matraz-btn" class="btn flex-grow w-full whitespace-nowrap text-sm !py-3">
+                            [ Añadir al Matraz ]
+                        </button>
+                    </div>
+                    <!-- Botón alternativo para cuando está en el Crisol -->
+                    <a id="whatsapp-cta-crisol" href="#" class="btn btn-outline hidden w-full max-w-xs mx-auto text-sm">
+                        [ Consultar Disponibilidad ]
+                    </a>
                 </div>
             </div>
 
